@@ -5,6 +5,7 @@ export default function Search(props) {
     const search = (e) => {
       e.preventDefault();
       props.query(input)
+      props.logoSearch(input)
     }
     console.log(input)
     return (

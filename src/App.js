@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import Search from './Search'
 
 function App() {
-  const [asset, setAsset] = useState('BTC');
+  
  const [assetInfo, setAssetInfo] = useState({
    name: '',
    price: 0,
@@ -21,16 +21,18 @@ function App() {
     }));
   }
  
-  //  useEffect(() => {
-  //   fetch(`https://rest.coinapi.io/v1/symbols?filter_asset_id=${asset}?apikey=3DB0B8D6-BD54-4D47-9F9D-B276C963304E`)
-  //   .then(res => res.json())
-  //   .then(data => setIcon(data[0].url))
-  //  },[])
+   const logoSearch = (input) => {
+    fetch(`https://rest.coinapi.io/v1/assets/icons/50?apikey=3DB0B8D6-BD54-4D47-9F9D-B276C963304E`)
+    .then(res => res.json())
+    .then(data => setIcon(data.filter(asset => asset.asset_id == input)))
+   }
+   
   return (
+ 
     <div className="App">
      <h1>{assetInfo.name},{assetInfo.price}</h1>
-     <img src={assetInfo.icon}></img>
-     <Search query={query}></Search>
+     <img src={icon[0].url}></img>
+     <Search logoSearch={logoSearch} query={query}></Search>
     </div>
   )
 }
