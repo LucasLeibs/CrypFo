@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './styles/styles.css';
 import {useEffect, useState} from 'react';
 import Search from './Search'
-
+import Asset from './Asset'
 function App() {
   
  const [assets, setAssets] = useState([])
@@ -29,9 +29,9 @@ function App() {
  
     <div className="page-container">
           <Search query={query}></Search>
-          <div className="asset-table">
-            
-          </div>
+          <Asset assets={assets}/>
+    
+        
  
     </div>
   )

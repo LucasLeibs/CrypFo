@@ -1,0 +1,22 @@
+.asset-table {
+  width: 50vw;
+}
+
+.asset-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: blue;
+}
+
+.asset-data img {
+  width: 30px;
+  margin: 5px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+/*# sourceMappingURL=assets.css.map */

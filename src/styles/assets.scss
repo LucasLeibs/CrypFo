@@ -1,0 +1,17 @@
+.asset-table {
+    width: 50vw;
+   
+
+  
+}
+
+.asset-data {
+    display: flex;
+    flex-direction: row;
+    img {
+        width: 30px;
+        margin: 5px;
+        object-fit: contain;
+    }
+    color: blue;
+}
