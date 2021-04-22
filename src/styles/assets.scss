@@ -4,14 +4,26 @@
 
   
 }
-
-.asset-data {
+.name {
     display: flex;
     flex-direction: row;
     img {
         width: 30px;
-        margin: 5px;
-        object-fit: contain;
+        margin-bottom: -10px;
+        margin-right: 5px;
     }
-    color: blue;
+    p {
+        padding: 0;
+    }
+}
+
+tr {
+    text-align: left;
+}
+
+.price-change-pos {
+color: green;
+}
+.price-change-neg {
+color: red;
 }
