@@ -22,6 +22,7 @@ export default function Asset(props) {
      
     return  s.includes("-") ? <p className="price-change-neg">{percentChangeIcons[0]}{s.replace("-", "")}%</p> : <p className="price-change-pos">{percentChangeIcons[1]}{s}%</p>
     }
+
     return (
         <table className="asset-table">
             <tr>
@@ -31,7 +32,7 @@ export default function Asset(props) {
                 <th>Market Cap</th>
                 
             </tr>
-            {props.assets.map(asset => (
+            {props.filterAssets.map(asset => (
                 
                 <tr>
                     <td className="name">

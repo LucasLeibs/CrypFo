@@ -19,5 +19,13 @@ form {
 
 .search-bar {
   width: 50%;
+  height: 50px;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  padding-left: 10px;
+}
+
+.search-bar:focus {
+  outline: none;
 }
 /*# sourceMappingURL=search.css.map */

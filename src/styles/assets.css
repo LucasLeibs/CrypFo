@@ -10,6 +10,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  font-weight: bold;
 }
 
 .name img {
