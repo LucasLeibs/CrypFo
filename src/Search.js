@@ -11,8 +11,8 @@ export default function Search(props) {
     return (
         <div>
           <form onSubmit={(e) => search(e)}>
-            <input onChange={(e) => setInput(e.target.value)}></input>
-            <button type="submit"> GO</button>
+            <input className="search-bar" onChange={(e) => setInput(e.target.value)}></input>
+            
             </form>
         </div>
     )
