@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './styles/styles.css'
+import '../node_modules/react-vis/dist/style.css';
+import {XYPlot, LineSeries} from 'react-vis'
 
 
 const percentChangeIcons = [
@@ -13,7 +15,7 @@ const percentChangeIcons = [
 
 export default function Asset(props) {
 const [prices, setPrices] = useState([])
-const [graoh, showGraph] = useState('false')
+const [graph, showGraph] = useState(false)
 
     const numberFormat = (number) => {
       return  number.toLocaleString()
@@ -32,11 +34,24 @@ const [graoh, showGraph] = useState('false')
         .then(res => res.json())
         .then(data => { 
             setPrices(data.prices)
-            showGraph('true')
+            showGraph(!graph)
         })
 console.log(prices)
     }
-
+    const data = [
+        {x: 0, y: prices[0][1]},
+                                   {x: 1, y: prices[1][1]},
+                               {x: 2, y: prices[2][1]},
+                                  {x: 3, y: prices[3][1]},
+                                  {x: 4, y: prices[4][1]},
+                                  {x: 5, y: prices[5][1]},
+                                  {x: 6, y: prices[6][1]},
+                                  {x: 7, y: prices[7][1]},
+                                   {x: 8, y: prices[8][1]},
+                                   {x: 9, y: prices[9][1]},
+                                  {x: 10, y: prices[10][1]}
+      ]
+      
     return (
         <table className="asset-table">
             <tr>
@@ -52,6 +67,17 @@ console.log(prices)
                 <tr>
                     <td className="name">
                     <p><img src={asset.image}></img>{asset.id} <button onClick={(e) => fetchData(e,asset.id)}>See Chart</button></p>
+                    <div>
+                    {graph === true ? <XYPlot height={300} width={300}><LineSeries data={data
+                        
+                         
+                            
+                         
+                    }/></XYPlot>: '' }
+                    </div>
+                    
+
+                
                     </td>
                     <td>
                         <p> $ {numberFormat(asset.current_price)}</p>
