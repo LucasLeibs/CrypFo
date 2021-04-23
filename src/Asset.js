@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/styles.css'
 
 
@@ -12,6 +12,9 @@ const percentChangeIcons = [
 ]
 
 export default function Asset(props) {
+const [prices, setPrices] = useState([])
+const [graoh, showGraph] = useState('false')
+
     const numberFormat = (number) => {
       return  number.toLocaleString()
     }
@@ -21,6 +24,17 @@ export default function Asset(props) {
      let s = percent.toString()
      
     return  s.includes("-") ? <p className="price-change-neg">{percentChangeIcons[0]}{s.replace("-", "")}%</p> : <p className="price-change-pos">{percentChangeIcons[1]}{s}%</p>
+    }
+
+    const fetchData = (e,asset) => {
+        e.preventDefault();
+        fetch(`https://api.coingecko.com/api/v3/coins/${asset}/market_chart?vs_currency=usd&days=10&interval=daily`)
+        .then(res => res.json())
+        .then(data => { 
+            setPrices(data.prices)
+            showGraph('true')
+        })
+console.log(prices)
     }
 
     return (
@@ -37,7 +51,7 @@ export default function Asset(props) {
                 
                 <tr>
                     <td className="name">
-                    <p><img src={asset.image}></img>{asset.id}</p>
+                    <p><img src={asset.image}></img>{asset.id} <button onClick={(e) => fetchData(e,asset.id)}>See Chart</button></p>
                     </td>
                     <td>
                         <p> $ {numberFormat(asset.current_price)}</p>
@@ -51,6 +65,7 @@ export default function Asset(props) {
                     <td>
                         {numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}
                     </td>
+                    
                 </tr>
             ))}
         </table>
