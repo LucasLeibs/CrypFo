@@ -30,6 +30,7 @@ export default function Asset(props) {
                 <th>Price</th>
                 <th>24hr %</th>
                 <th>Market Cap</th>
+                <th>Circulating Supply</th>
                 
             </tr>
             {props.filterAssets.map(asset => (
@@ -46,6 +47,9 @@ export default function Asset(props) {
                     </td>
                     <td>
                         {numberFormat(asset.market_cap)}
+                    </td>
+                    <td>
+                        {numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}
                     </td>
                 </tr>
             ))}

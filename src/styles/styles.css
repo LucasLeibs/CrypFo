@@ -1,5 +1,7 @@
 .asset-table {
-  width: 50vw;
+  width: 70vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 .name {
@@ -11,6 +13,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   font-weight: bold;
+  width: 250px;
 }
 
 .name img {
