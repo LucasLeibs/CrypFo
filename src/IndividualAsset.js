@@ -16,27 +16,23 @@ export default function IndividualAsset({asset}) {
 const [graph, showGraph] = useState(false)
 const fetchData = (e,asset) => {
     e.preventDefault();
-    fetch(`https://api.coingecko.com/api/v3/coins/${asset}/market_chart?vs_currency=usd&days=10&interval=daily`)
+    fetch(`https://api.coingecko.com/api/v3/coins/${asset}/market_chart?vs_currency=usd&days=7&interval=hourly`)
     .then(res => res.json())
     .then(data => { 
         setPrices(data.prices)
         showGraph(!graph)
     })
-console.log(prices)
+
 }
-const data = graph ? [
-    {x: 0, y: prices[0][1]},
-                               {x: 1, y: prices[1][1]},
-                           {x: 2, y: prices[2][1]},
-                              {x: 3, y: prices[3][1]},
-                              {x: 4, y: prices[4][1]},
-                              {x: 5, y: prices[5][1]},
-                              {x: 6, y: prices[6][1]},
-                              {x: 7, y: prices[7][1]},
-                               {x: 8, y: prices[8][1]},
-                               {x: 9, y: prices[9][1]},
-                              {x: 10, y: prices[10][1]}
-  ] : []
+const loopData = () => {
+    let data = []
+    for(let i = 0; i < prices.length; i++) {
+        data.push({x:i, y:prices[i][1]})
+    }
+   return data
+}
+ const data = graph ? loopData() 
+  : []
 
   const numberFormat = (number) => {
     return  number.toLocaleString()
@@ -53,13 +49,10 @@ const data = graph ? [
         <tr>
         <td className="name">
         <p><img src={asset.image}></img>{asset.id} <button onClick={(e) => fetchData(e,asset.id)}>See Chart</button></p>
+        </td>
         <div>
         {graph === true ? <XYPlot height={300} width={300}><LineSeries data={data}/></XYPlot>: '' }
         </div>
-        
-
-    
-        </td>
         <td>
             <p> $ {numberFormat(asset.current_price)}</p>
         </td>

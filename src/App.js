@@ -42,7 +42,7 @@ setInterval(update,1000)
   //   .then(res => res.json())
   //   .then(data => setIcon(data.filter(asset => asset.asset_id == input)))
   //  }
-   console.log(assets)
+  
   return (
     
     <div className="page-container">
