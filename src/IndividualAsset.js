@@ -48,7 +48,7 @@ const loopData = () => {
     return (
         <tr>
         <td className="name">
-        <p><img src={asset.image}></img>{asset.id} <button onClick={(e) => fetchData(e,asset.id)}>See Chart</button></p>
+        <p><img src={asset.image}></img>{asset.id} <button className="chart-button" onClick={(e) => fetchData(e,asset.id)}>See Chart</button></p>
         </td>
         <div>
         {graph === true ? <XYPlot height={300} width={300}><LineSeries data={data}/></XYPlot>: '' }

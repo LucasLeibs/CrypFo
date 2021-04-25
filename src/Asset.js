@@ -18,6 +18,7 @@ export default function Asset(props) {
         <table className="asset-table">
             <tr>
                 <th>Name</th>
+              
                 <th>Price</th>
                 <th>24hr %</th>
                 <th>Market Cap</th>

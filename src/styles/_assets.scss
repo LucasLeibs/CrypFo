@@ -1,7 +1,15 @@
+$background: #292e36;
+$red: #f75452;
+$green: #64f573;
+$buttonPrimary: #61fabf;
+$buttonRadius: 1rem;
+
+
 .asset-table {
     width: 70vw;
    margin-left: 15vw;
    margin-right: 15vw;
+   background-color: $background;
 
   
 }
@@ -9,7 +17,7 @@
     display: flex;
     flex-direction: row;
     font-weight: bold;
-    width: 250px;
+    width: 400px;
     img {
         width: 30px;
         margin-bottom: -10px;
@@ -25,10 +33,10 @@ tr {
 }
 
 .price-change-pos {
-color: green;
+color: $green;
 }
 .price-change-neg {
-color: red;
+color:$red;
 }
 
 #up-arrow {
@@ -40,4 +48,10 @@ color: red;
     width: 10px;
     margin-right: 5px;
 }
-
+.chart-button {
+   float:left;
+   margin-right: 10px;
+   background: $buttonPrimary;
+   border-radius:$buttonRadius;
+   border: none;
+}

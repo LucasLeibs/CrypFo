@@ -2,6 +2,7 @@
   width: 70vw;
   margin-left: 15vw;
   margin-right: 15vw;
+  background-color: #292e36;
 }
 
 .name {
@@ -13,7 +14,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   font-weight: bold;
-  width: 250px;
+  width: 400px;
 }
 
 .name img {
@@ -31,11 +32,11 @@ tr {
 }
 
 .price-change-pos {
-  color: green;
+  color: #64f573;
 }
 
 .price-change-neg {
-  color: red;
+  color: #f75452;
 }
 
 #up-arrow {
@@ -46,6 +47,14 @@ tr {
 #down-arrow {
   width: 10px;
   margin-right: 5px;
+}
+
+.chart-button {
+  float: left;
+  margin-right: 10px;
+  background: #61fabf;
+  border-radius: 1rem;
+  border: none;
 }
 
 form {
@@ -79,6 +88,10 @@ form {
   outline: none;
 }
 
+body {
+  background-color: #292e36;
+}
+
 .page-container {
   width: 100vw;
   height: 100vh;
@@ -95,6 +108,8 @@ form {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  background-color: #292e36;
+  color: white;
 }
 
 #clock {
