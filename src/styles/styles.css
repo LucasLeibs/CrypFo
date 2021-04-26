@@ -1,22 +1,16 @@
 .asset-table {
-  width: 70vw;
+  width: 100vw;
   margin-left: 15vw;
   margin-right: 15vw;
   background-color: white;
   color: black;
-  padding: 5rem;
+  border-collapse: collapse;
 }
 
 .name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  padding-left: 5rem;
   font-weight: bold;
-  width: 400px;
+  width: 300px;
 }
 
 .name img {
@@ -25,12 +19,16 @@
   margin-right: 5px;
 }
 
-.name p {
-  padding: 0;
-}
-
 tr {
   text-align: left;
+}
+
+.row td {
+  border-bottom: 1px solid #a0c1ce;
+}
+
+.name-label {
+  padding-left: 5rem;
 }
 
 .price-change-pos {
@@ -57,6 +55,10 @@ tr {
   background: #61fabf;
   border-radius: 1rem;
   border: none;
+}
+
+#graph {
+  text-align: center;
 }
 
 form {

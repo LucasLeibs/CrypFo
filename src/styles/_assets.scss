@@ -3,35 +3,50 @@ $red: #f75452;
 $green: #64f573;
 $buttonPrimary: #61fabf;
 $buttonRadius: 1rem;
-
+$background: #292e36;
 
 .asset-table {
-    width: 70vw;
+    width: 100vw;
    margin-left: 15vw;
    margin-right: 15vw;
    background-color: white;
    color: black;
-   padding: 5rem;
+
+   border-collapse: collapse;
+
 
   
 }
 .name {
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
+    padding-left: 5rem;
     font-weight: bold;
-    width: 400px;
+    width: 300px;
     img {
         width: 30px;
         margin-bottom: -10px;
         margin-right: 5px;
     }
-    p {
-        padding: 0;
-    }
+    // p {
+    //     padding: 0;
+    // }
 }
+
 
 tr {
     text-align: left;
+  
+  
+}
+
+.row td {
+   
+    border-bottom: 1px solid rgb(160, 193, 206);
+
+}
+.name-label {
+    padding-left: 5rem;
 }
 
 .price-change-pos {
@@ -57,3 +72,7 @@ color:$red;
    border-radius:$buttonRadius;
    border: none;
 }
+ #graph {
+     text-align: center;
+ }
+

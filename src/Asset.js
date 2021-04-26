@@ -17,12 +17,13 @@ export default function Asset(props) {
     return (
         <table className="asset-table">
             <tr>
-                <th>Name</th>
+                <th className="name-label">Name</th>
               
                 <th>Price</th>
                 <th>24hr %</th>
                 <th>Market Cap</th>
                 <th>Circulating Supply</th>
+                <th id="graph">Last 7 days</th>
                 
             </tr>
             {props.filterAssets.map(asset => (

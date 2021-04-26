@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries} from 'react-vis'
 
@@ -13,14 +13,18 @@ const percentChangeIcons = [
 export default function IndividualAsset({asset}) {
     
     const [prices, setPrices] = useState([])
-const [graph, showGraph] = useState(false)
-const fetchData = (e,asset) => {
-    e.preventDefault();
+
+
+useEffect(() => {
+    fetchData(asset.id)
+}, [])
+const fetchData = (asset) => {
+
     fetch(`https://api.coingecko.com/api/v3/coins/${asset}/market_chart?vs_currency=usd&days=7&interval=hourly`)
     .then(res => res.json())
     .then(data => { 
         setPrices(data.prices)
-        showGraph(!graph)
+       
     })
 
 }
@@ -31,8 +35,8 @@ const loopData = () => {
     }
    return data
 }
- const data = graph ? loopData() 
-  : []
+ const data = loopData() 
+  
 
   const numberFormat = (number) => {
     return  number.toLocaleString()
@@ -42,18 +46,16 @@ const loopData = () => {
   
    let s = percent.toString()
    
-  return  s.includes("-") ? <p className="price-change-neg">{percentChangeIcons[0]}{s.replace("-", "")}%</p> : <p className="price-change-pos">{percentChangeIcons[1]}{s}%</p>
+  return  s.includes("-") ? <p className="price-change-neg">{percentChangeIcons[0]}{s.replace("-", "").slice(0,4)}%</p> : <p className="price-change-pos">{percentChangeIcons[1]}{s.slice(0,5)}%</p>
   }
 
     return (
-        <tr>
+        <tr className="row">
         <td className="name">
-        <p><img src={asset.image}></img>{asset.id} <button className="chart-button" onClick={(e) => fetchData(e,asset.id)}>See Chart</button></p>
+        <p><img src={asset.image}></img>{asset.id} </p>
         </td>
-        <div>
-        {graph === true ? <XYPlot height={100} width={200}><LineSeries data={data}/></XYPlot>: '' }
-        </div>
-        <td>
+       
+        <td className="price">
             <p> $ {numberFormat(asset.current_price)}</p>
         </td>
         <td>
@@ -65,6 +67,10 @@ const loopData = () => {
         <td>
             {numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}
         </td>
+        <td> 
+            <div>
+        <XYPlot height={100} width={200}><LineSeries color={prices[prices.length-1][1] > prices[0][1] ? "green" : "red"} className="line" data={data}/></XYPlot>
+        </div></td>
         
     </tr>
     )
