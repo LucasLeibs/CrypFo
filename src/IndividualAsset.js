@@ -51,7 +51,7 @@ const loopData = () => {
         <p><img src={asset.image}></img>{asset.id} <button className="chart-button" onClick={(e) => fetchData(e,asset.id)}>See Chart</button></p>
         </td>
         <div>
-        {graph === true ? <XYPlot height={300} width={300}><LineSeries data={data}/></XYPlot>: '' }
+        {graph === true ? <XYPlot height={100} width={200}><LineSeries data={data}/></XYPlot>: '' }
         </div>
         <td>
             <p> $ {numberFormat(asset.current_price)}</p>

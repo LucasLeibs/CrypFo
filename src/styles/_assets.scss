@@ -1,4 +1,4 @@
-$background: #292e36;
+
 $red: #f75452;
 $green: #64f573;
 $buttonPrimary: #61fabf;
@@ -9,7 +9,9 @@ $buttonRadius: 1rem;
     width: 70vw;
    margin-left: 15vw;
    margin-right: 15vw;
-   background-color: $background;
+   background-color: white;
+   color: black;
+   padding: 5rem;
 
   
 }

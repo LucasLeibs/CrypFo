@@ -2,7 +2,9 @@
   width: 70vw;
   margin-left: 15vw;
   margin-right: 15vw;
-  background-color: #292e36;
+  background-color: white;
+  color: black;
+  padding: 5rem;
 }
 
 .name {
