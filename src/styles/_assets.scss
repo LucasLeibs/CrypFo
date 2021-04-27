@@ -18,8 +18,6 @@ $background: #292e36;
   
 }
 .name {
-    // display: flex;
-    // flex-direction: row;
     padding-left: 5rem;
     font-weight: bold;
     width: 300px;
@@ -31,6 +29,9 @@ $background: #292e36;
     // p {
     //     padding: 0;
     // }
+    h3 {
+        color: grey;
+    }
 }
 
 
@@ -81,6 +82,19 @@ font-weight: bold;
  .circle-graph {
 margin-left: 10%;
 margin-bottom: 10px;
+
  }
 
- 
+ #info {
+     width: 20px;
+    margin-bottom: -5px;
+    margin-left: 5px;
+    color: rgb(160, 193, 206);
+ }
+ #popover-basic {
+    background: white;
+    padding: 10px;
+    width: 300px;
+    border-radius: 2px;
+    border: solid 1px grey
+ }

@@ -19,6 +19,10 @@
   margin-right: 5px;
 }
 
+.name h3 {
+  color: grey;
+}
+
 tr {
   text-align: left;
 }
@@ -66,6 +70,21 @@ tr {
 .circle-graph {
   margin-left: 10%;
   margin-bottom: 10px;
+}
+
+#info {
+  width: 20px;
+  margin-bottom: -5px;
+  margin-left: 5px;
+  color: #a0c1ce;
+}
+
+#popover-basic {
+  background: white;
+  padding: 10px;
+  width: 300px;
+  border-radius: 2px;
+  border: solid 1px grey;
 }
 
 form {

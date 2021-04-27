@@ -2,7 +2,11 @@ import React, {useState, useEffect} from 'react'
 import '../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries} from 'react-vis';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import Popover from 'react-bootstrap/Popover'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import 'react-circular-progressbar/dist/styles.css';
+
+
 
 const percentChangeIcons = [
     <svg xmlns="http://www.w3.org/2000/svg" id="down-arrow" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -63,13 +67,23 @@ const loopData = () => {
         return `${percent.toString().slice(0,4)} %`
  
   }
+
+  const popover = (
+    <Popover id="popover-basic">
+     <Popover.Title>{asset.id.replace(asset.id.charAt(0), asset.id.charAt(0).toUpperCase())}</Popover.Title>
+     <Popover.Content>{percentSupply(asset)} of supply is in circulation</Popover.Content>
+     <Popover.Content>Circulating Supply: {numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}</Popover.Content>
+     <Popover.Content>Total: {numberFormat(asset.max_supply)} {asset.symbol.toUpperCase()}</Popover.Content>
+    </Popover>
+  )
   console.log(asset)
     return (
         <tr className="row">
  
         <td className="name">
             
-        <p><img src={asset.image}></img>{asset.id.replace(asset.id.charAt(0), asset.id.charAt(0).toUpperCase())} </p>
+        <p><img src={asset.image}></img>{asset.id.replace(asset.id.charAt(0), asset.id.charAt(0).toUpperCase())} <h3>{asset.symbol.toUpperCase()}</h3></p>
+        
         </td>
        
         <td className="price">
@@ -82,7 +96,8 @@ const loopData = () => {
             {numberFormat(asset.market_cap)}
         </td>
         <td className="supply">
-           <p>{numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}</p> 
+           <p>{numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}</p>
+           
             <div className="circle-graph" style={{ width: 50, height: 50 }}>
                 {asset.max_supply == null ? <CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={'No Max'} styles={buildStyles({
     
@@ -91,7 +106,7 @@ const loopData = () => {
     trailColor: 'white',
     backgroundColor: '#d4d9d5',
   })}
-/> : <CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={percentSupply(asset)} styles={buildStyles({
+/>: <OverlayTrigger trigger="hover" placement="right" overlay={popover}><div><CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={percentSupply(asset)} styles={buildStyles({
     
     pathColor: `#0aa5c4`,
     textColor: '',
@@ -99,9 +114,11 @@ const loopData = () => {
     backgroundColor: '#3e98c7',
    
   })}
-/>}
-            
+/></div></OverlayTrigger>}
+
+
             </div>
+      
         </td>
         <td> 
             <div>
