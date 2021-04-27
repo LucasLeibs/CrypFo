@@ -1,6 +1,6 @@
 
 $red: #f75452;
-$green: #64f573;
+$green: #32cf4c;
 $buttonPrimary: #61fabf;
 $buttonRadius: 1rem;
 $background: #292e36;
@@ -51,9 +51,11 @@ tr {
 
 .price-change-pos {
 color: $green;
+font-weight: bold;
 }
 .price-change-neg {
 color:$red;
+font-weight: bold;
 }
 
 #up-arrow {
@@ -74,5 +76,9 @@ color:$red;
 }
  #graph {
      text-align: center;
+ }
+
+ .circle-graph {
+margin-left: 10%;
  }
 

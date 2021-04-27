@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import '../node_modules/react-vis/dist/style.css';
-import {XYPlot, LineSeries} from 'react-vis'
+import {XYPlot, LineSeries} from 'react-vis';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const percentChangeIcons = [
     <svg xmlns="http://www.w3.org/2000/svg" id="down-arrow" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -28,6 +30,9 @@ const fetchData = (asset) => {
     })
 
 }
+// const capitalize = (asset) => {
+// return asset.charAt(0).toUpperCase() + asset.
+// }
 const loopData = () => {
     let data = []
     for(let i = 0; i < prices.length; i++) {
@@ -39,7 +44,7 @@ const loopData = () => {
   
 
   const numberFormat = (number) => {
-    return  number.toLocaleString()
+    return  Math.floor(number).toLocaleString()
   }
 
   const percentChange = (percent) => {
@@ -48,11 +53,23 @@ const loopData = () => {
    
   return  s.includes("-") ? <p className="price-change-neg">{percentChangeIcons[0]}{s.replace("-", "").slice(0,4)}%</p> : <p className="price-change-pos">{percentChangeIcons[1]}{s.slice(0,5)}%</p>
   }
+  const graphColor = () => {
+     return prices[prices.length-1][1] > prices[0][1] ? "green" : "red"
+  }
 
+  const percentSupply = (asset) => {
+      let percent = (asset.circulating_supply * 100) / asset.max_supply
+            console.log(percent)
+        return `${percent.toString().slice(0,4)} %`
+ 
+  }
+  console.log(asset)
     return (
         <tr className="row">
+ 
         <td className="name">
-        <p><img src={asset.image}></img>{asset.id} </p>
+            
+        <p><img src={asset.image}></img>{asset.id.replace(asset.id.charAt(0), asset.id.charAt(0).toUpperCase())} </p>
         </td>
        
         <td className="price">
@@ -64,14 +81,18 @@ const loopData = () => {
         <td>
             {numberFormat(asset.market_cap)}
         </td>
-        <td>
-            {numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}
+        <td className="supply">
+           <p>{numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}</p> 
+            <div className="circle-graph" style={{ width: 50, height: 50 }}>
+            <CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={percentSupply(asset)}/>
+            </div>
         </td>
         <td> 
             <div>
-        <XYPlot height={100} width={200}><LineSeries color={prices[prices.length-1][1] > prices[0][1] ? "green" : "red"} className="line" data={data}/></XYPlot>
+        <XYPlot height={100} width={200}><LineSeries color={prices.length > 0 ? graphColor() : 'blue'} className="line" data={data}/></XYPlot>
         </div></td>
-        
+
     </tr>
+    
     )
 }
