@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import '../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries} from 'react-vis';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const percentChangeIcons = [
@@ -73,7 +73,7 @@ const loopData = () => {
         </td>
        
         <td className="price">
-            <p> $ {numberFormat(asset.current_price)}</p>
+            <p> $ {asset.current_price.toLocaleString()}</p>
         </td>
         <td>
             {percentChange(asset.price_change_percentage_24h)}
@@ -84,7 +84,23 @@ const loopData = () => {
         <td className="supply">
            <p>{numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}</p> 
             <div className="circle-graph" style={{ width: 50, height: 50 }}>
-            <CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={percentSupply(asset)}/>
+                {asset.max_supply == null ? <CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={'No Max'} styles={buildStyles({
+    
+    pathColor: `#d4d9d5`,
+    textColor: '',
+    trailColor: 'white',
+    backgroundColor: '#d4d9d5',
+  })}
+/> : <CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={percentSupply(asset)} styles={buildStyles({
+    
+    pathColor: `#0aa5c4`,
+    textColor: '',
+    trailColor: 'white',
+    backgroundColor: '#3e98c7',
+   
+  })}
+/>}
+            
             </div>
         </td>
         <td> 
