@@ -5,7 +5,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import Popover from 'react-bootstrap/Popover'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import 'react-circular-progressbar/dist/styles.css';
-import Chart from './Chart'
+
 import {Link} from 'react-router-dom'
 
 const percentChangeIcons = [

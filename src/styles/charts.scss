@@ -1,13 +1,7 @@
-@import "./_assets";
-@import "search";
-@import "charts";
 $background: #292e36;
 $textColor: white;
 
-body {
-    background-color: $background;
-}
-.page-container {
+.chart-page-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -16,15 +10,4 @@ body {
     justify-content: flex-start;
     background-color: $background;
     color: $textColor;
-    .logo {
-        width: 15vw;
-    }
-}
-
-#clock {
-    width: 50px;
-}
-
-.time {
-    font-weight: bold;
 }
