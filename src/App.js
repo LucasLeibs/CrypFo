@@ -6,6 +6,14 @@ import Asset from './Asset'
 import moment from 'moment';
 import logo from './logo.png'
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Chart from './Chart';
+
 const clock = <svg xmlns="http://www.w3.org/2000/svg" id="clock" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
 </svg>
@@ -48,19 +56,26 @@ setInterval(update,1000)
   //  }
   
   return (
-    
+    <Router>
     <div className="page-container">
      
       <p className="time">{time}</p>
      
  <p>{clock}</p>
   <img className="logo"src={logo}></img>
+  <Switch>
+          <Route 
+         exact
+          path="/">
           <Search search={search} assets={assets}></Search>
           <Asset filterAssets={filteredCoins} assets={assets}/>
-    
-        
- 
+          </Route>
+          <Route exact path="/charts/:asset">
+           <Chart/>
+          </Route>
+          </Switch>
     </div>
+    </Router>
   )
 }
 

@@ -98,6 +98,11 @@ tr:hover {
           box-shadow: none;
 }
 
+th {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 form {
   margin-top: 10vw;
   margin-bottom: 20px;

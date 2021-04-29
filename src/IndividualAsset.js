@@ -5,8 +5,8 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import Popover from 'react-bootstrap/Popover'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import 'react-circular-progressbar/dist/styles.css';
-
-
+import Chart from './Chart'
+import {Link} from 'react-router-dom'
 
 const percentChangeIcons = [
     <svg xmlns="http://www.w3.org/2000/svg" id="down-arrow" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -18,7 +18,10 @@ const percentChangeIcons = [
 ]
 export default function IndividualAsset({asset}) {
     
-    const [prices, setPrices] = useState([])
+    const [prices, setPrices] = useState([]);
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
 
 useEffect(() => {
@@ -81,9 +84,9 @@ const loopData = () => {
   console.log(asset)
     return (
         <tr className="row">
- 
+  
         <td className="name">
-            
+       
         <p><img src={asset.image}></img>{asset.id.replace(asset.id.charAt(0), asset.id.charAt(0).toUpperCase())} <h3>{asset.symbol.toUpperCase()}</h3></p>
         
         </td>
@@ -127,8 +130,12 @@ const loopData = () => {
         <td> 
             <div>
         <XYPlot height={100} width={200}><LineSeries color={prices.length > 0 ? graphColor() : 'blue'} className="line" data={data}/></XYPlot>
-        </div></td>
-
+        </div><Link to={{
+    pathname: `/charts/${asset.id}`,
+    state: { asset: asset,
+    prices: prices }
+  }}>charts</Link></td>
+     
     </tr>
     
     )
