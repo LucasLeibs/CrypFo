@@ -22,7 +22,9 @@ export default function IndividualAsset({asset}) {
 
 
 useEffect(() => {
-    fetchData(asset.id)
+    prices.length > 0 ? console.log("limited to one request"): fetchData(asset.id)
+    
+   
 }, [])
 const fetchData = (asset) => {
 
@@ -70,7 +72,7 @@ const loopData = () => {
 
   const popover = (
     <Popover id="popover-basic">
-     <Popover.Title>{asset.id.replace(asset.id.charAt(0), asset.id.charAt(0).toUpperCase())}</Popover.Title>
+     <Popover.Title><strong>{asset.id.replace(asset.id.charAt(0), asset.id.charAt(0).toUpperCase())}</strong></Popover.Title>
      <Popover.Content>{percentSupply(asset)} of supply is in circulation</Popover.Content>
      <Popover.Content>Circulating Supply: {numberFormat(asset.circulating_supply)} {asset.symbol.toUpperCase()}</Popover.Content>
      <Popover.Content>Total: {numberFormat(asset.max_supply)} {asset.symbol.toUpperCase()}</Popover.Content>
@@ -106,12 +108,14 @@ const loopData = () => {
     trailColor: 'white',
     backgroundColor: '#d4d9d5',
   })}
-/>: <OverlayTrigger trigger="hover" placement="right" overlay={popover}><div><CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={percentSupply(asset)} styles={buildStyles({
+/>: <OverlayTrigger trigger="hover" placement="top" overlay={popover}><div><CircularProgressbar value={asset.circulating_supply} maxValue={asset.max_supply} text={percentSupply(asset)} styles={buildStyles({
     
     pathColor: `#0aa5c4`,
     textColor: '',
     trailColor: 'white',
     backgroundColor: '#3e98c7',
+    pathTransitionDuration: 2,
+    transition: 'stroke-dashoffset 0.5s ease 0s',
    
   })}
 /></div></OverlayTrigger>}

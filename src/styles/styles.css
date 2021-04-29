@@ -4,6 +4,7 @@
   margin-right: 15vw;
   background-color: white;
   color: black;
+  margin-top: 30px;
   border-collapse: collapse;
 }
 
@@ -25,10 +26,12 @@
 
 tr {
   text-align: left;
+  -webkit-box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+          box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 
-.row td {
-  border-bottom: 1px solid #a0c1ce;
+tr:hover {
+  background-color: #ebeef0;
 }
 
 .name-label {
@@ -84,11 +87,19 @@ tr {
   padding: 10px;
   width: 300px;
   border-radius: 2px;
-  border: solid 1px grey;
+  -webkit-box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+          box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.header {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 form {
-  margin-top: 25vh;
+  margin-top: 10vw;
   margin-bottom: 20px;
   width: 100vw;
   display: -webkit-box;
@@ -107,9 +118,11 @@ form {
 }
 
 .search-bar {
+  outline: none;
+  border: none;
   width: 50%;
   height: 50px;
-  border-radius: 5rem;
+  border-radius: 3rem;
   font-size: 1.5rem;
   padding-left: 10px;
 }
@@ -140,6 +153,10 @@ body {
           justify-content: flex-start;
   background-color: #292e36;
   color: white;
+}
+
+.page-container .logo {
+  width: 15vw;
 }
 
 #clock {

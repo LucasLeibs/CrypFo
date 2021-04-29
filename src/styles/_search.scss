@@ -1,5 +1,5 @@
 form {
-  margin-top: 25vh;
+  margin-top: 10vw;
   margin-bottom: 20px;
     width: 100vw;
     display: flex;
@@ -9,10 +9,11 @@ form {
 }
 
 .search-bar {
- 
+  outline: none;
+  border: none;
     width: 50%;
     height: 50px;
-  border-radius: 5rem;
+  border-radius: 3rem;
   font-size: 1.5rem;
 padding-left: 10px;
   &:focus {

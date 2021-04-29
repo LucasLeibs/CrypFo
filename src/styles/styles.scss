@@ -15,6 +15,9 @@ body {
     justify-content: flex-start;
     background-color: $background;
     color: $textColor;
+    .logo {
+        width: 15vw;
+    }
 }
 
 #clock {

@@ -4,14 +4,16 @@ $green: #32cf4c;
 $buttonPrimary: #61fabf;
 $buttonRadius: 1rem;
 $background: #292e36;
-
+$shadow:  rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+$accent: rgb(235, 238, 240);
 .asset-table {
+    
     width: 100vw;
    margin-left: 15vw;
    margin-right: 15vw;
    background-color: white;
    color: black;
-
+margin-top: 30px;
    border-collapse: collapse;
 
 
@@ -37,13 +39,17 @@ $background: #292e36;
 
 tr {
     text-align: left;
-  
+    &:hover {
+        background-color: $accent
+    }
+    box-shadow: $shadow;
   
 }
 
 .row td {
    
-    border-bottom: 1px solid rgb(160, 193, 206);
+    // border-bottom: 1px solid $accent;
+   
 
 }
 .name-label {
@@ -96,5 +102,11 @@ margin-bottom: 10px;
     padding: 10px;
     width: 300px;
     border-radius: 2px;
-    border: solid 1px grey
+    box-shadow: $shadow;
+  font-size: 0.8rem;
+    font-weight: bold;
  }
+.header {
+    box-shadow: none;
+ 
+}

@@ -5,11 +5,11 @@ export default function Search(props) {
   
    
     return (
-        <div>
-          <form>
-            <input className="search-bar" onChange={(e) => props.search(e)}></input>
+       
+          <form onSubmit={e => { e.preventDefault(); }}>
+            <input placeholder="Search Cryptocurrency's" className="search-bar" onChange={(e) => props.search(e)}></input>
             
             </form>
-        </div>
+      
     )
 }
