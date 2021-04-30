@@ -5,7 +5,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import Popover from 'react-bootstrap/Popover'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import 'react-circular-progressbar/dist/styles.css';
-
+import moment from 'moment';
 import {Link} from 'react-router-dom'
 
 const percentChangeIcons = [
@@ -43,14 +43,18 @@ const fetchData = (asset) => {
 // return asset.charAt(0).toUpperCase() + asset.
 // }
 const loopData = () => {
+  
     let data = []
     for(let i = 0; i < prices.length; i++) {
+        
         data.push({x:i, y:prices[i][1]})
     }
    return data
+ 
+  
 }
  const data = loopData() 
-  
+
 
   const numberFormat = (number) => {
     return  Math.floor(number).toLocaleString()
