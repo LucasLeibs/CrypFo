@@ -25,20 +25,35 @@ export default function IndividualAsset({asset}) {
 
 
 useEffect(() => {
-    prices.length > 0 ? console.log("limited to one request"): fetchData(asset.id)
+    let coinPrices = localStorage.getItem("prices")
+//   coinPrices ? : fetchData(asset.id)
+  if (coinPrices) {
+      coinPrices = JSON.parse(coinPrices);
+      setPrices(coinPrices)
+  } else {
+    fetch(`https://api.coingecko.com/api/v3/coins/${asset.id}/market_chart?vs_currency=usd&days=7&interval=hourly`)
+    .then(res => res.json())
+    .then(data => { 
+        setPrices(data.prices);
+        localStorage.setItem("coinPrices", JSON.stringify(data.prices))
+       
+    })
+     
+  }
     
    
 }, [])
-const fetchData = (asset) => {
+// const fetchData = (asset) => {
 
-    fetch(`https://api.coingecko.com/api/v3/coins/${asset}/market_chart?vs_currency=usd&days=7&interval=hourly`)
-    .then(res => res.json())
-    .then(data => { 
-        setPrices(data.prices)
+//     fetch(`https://api.coingecko.com/api/v3/coins/${asset}/market_chart?vs_currency=usd&days=7&interval=hourly`)
+//     .then(res => res.json())
+//     .then(data => { 
+//         setPrices(data.prices);
+//         localStorage.setItem(coinPrices, JSON.stringify(data.prices))
        
-    })
+//     })
 
-}
+// }
 // const capitalize = (asset) => {
 // return asset.charAt(0).toUpperCase() + asset.
 // }
@@ -72,7 +87,7 @@ const loopData = () => {
 
   const percentSupply = (asset) => {
       let percent = (asset.circulating_supply * 100) / asset.max_supply
-            console.log(percent)
+         
         return `${percent.toString().slice(0,4)} %`
  
   }
@@ -85,7 +100,7 @@ const loopData = () => {
      <Popover.Content>Total: {numberFormat(asset.max_supply)} {asset.symbol.toUpperCase()}</Popover.Content>
     </Popover>
   )
-  console.log(asset)
+
     return (
         <tr className="row">
   
