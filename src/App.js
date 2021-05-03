@@ -59,14 +59,14 @@ setInterval(update,1000)
     <Router>
     <div className="page-container">
      
-      <p className="time">{time}</p>
-     
- <p>{clock}</p>
-  <img className="logo"src={logo}></img>
+   
   <Switch>
           <Route 
          exact
           path="/">
+      <p className="time">{time}</p>
+     <p>{clock}</p>
+      <img className="logo"src={logo}></img>
           <Search search={search} assets={assets}></Search>
           <Asset filterAssets={filteredCoins} assets={assets}/>
           </Route>

@@ -73,6 +73,9 @@ console.log(dailyPrices)
      }
     return (
    <div className="chart-page-container">
+       <div>
+           <h1>BTC</h1>
+       </div>
        {showDaily === false ?
           <XYPlot xType="time" onMouseLeave={_onMouseLeave} height={400} width={700}>  
       
