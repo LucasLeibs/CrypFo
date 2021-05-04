@@ -42,28 +42,28 @@ export default function IndividualAsset({ asset }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  useEffect(() => {
-    let coinPrices = localStorage.getItem("prices");
+//   useEffect(() => {
+//     let coinPrices = localStorage.getItem("prices");
 
-    if (coinPrices) {
-      coinPrices = JSON.parse(coinPrices);
-      setPrices(coinPrices);
-    } else {
-      fetch(
-        `https://api.coingecko.com/api/v3/coins/${asset.id}/market_chart?vs_currency=usd&days=7&interval=hourly`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setPrices(data.prices);
-          localStorage.setItem("coinPrices", JSON.stringify(data.prices));
-        });
-    }
-  }, []);
+//     if (coinPrices) {
+//       coinPrices = JSON.parse(coinPrices);
+//       setPrices(coinPrices);
+//     } else {
+//       fetch(
+//         `https://api.coingecko.com/api/v3/coins/${asset.id}/market_chart?vs_currency=usd&days=7&interval=hourly`
+//       )
+//         .then((res) => res.json())
+//         .then((data) => {
+//           setPrices(data.prices);
+//           localStorage.setItem("coinPrices", JSON.stringify(data.prices));
+//         });
+//     }
+//   }, []);
 
   const loopData = () => {
     let data = [];
-    for (let i = 0; i < prices.length; i++) {
-      data.push({ x: i, y: prices[i][1] });
+    for (let i = 0; i < asset.sparkline_in_7d.price.length; i++) {
+      data.push({ x: i, y: asset.sparkline_in_7d.price[i] });
     }
     return data;
   };
@@ -89,7 +89,7 @@ export default function IndividualAsset({ asset }) {
     );
   };
   const graphColor = () => {
-    return prices[prices.length - 1][1] > prices[0][1] ? "green" : "red";
+    return asset.sparkline_in_7d.price[asset.sparkline_in_7d.price.length - 1] > asset.sparkline_in_7d.price[0] ? "green" : "red";
   };
 
   const percentSupply = (asset) => {
@@ -182,7 +182,7 @@ export default function IndividualAsset({ asset }) {
         <div>
           <XYPlot height={100} width={200}>
             <LineSeries
-              color={prices.length > 0 ? graphColor() : "blue"}
+              color={asset.sparkline_in_7d.price.length > 0 ? graphColor() : "blue"}
               className="line"
               data={data}
             />
