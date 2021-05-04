@@ -39,6 +39,9 @@ export default function Chart() {
   const [hintValue, setHint] = useState("");
   const [dailyPrices, setDailyPrices] = useState([]);
   const [showDaily, setShowDaily] = useState(false);
+  
+  const [show7Day, set7Day] = useState(false);
+
   const _onMouseLeave = () => {
     setHint("");
   };
@@ -122,8 +125,16 @@ export default function Chart() {
         <h1>{state.asset.symbol.toUpperCase()}</h1>
         </div>
       </div>
+      <div className="chart">
+          <div className="chart-buttons">
+              <button onClick={() => dailyChart()}>1D</button>
+              <button>7D</button>
+              <button>1M</button>
+              <button>3M</button>
+              <button>1Y</button>
+              </div>
       {showDaily === false ? (
-          <div className="chart">
+          
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
@@ -142,12 +153,12 @@ export default function Chart() {
             data={loopData()}
           />
           <Hint value={hintValue}>
-            <div className="setHint">
+            <div className="hint">
               <p>{hintValue.y} </p>
               <p>{moment(hintValue.x).format("MMM Do YY")}</p>
             </div>
           </Hint>
-        </XYPlot></div>
+        </XYPlot>
       ) : (
         <XYPlot
           xType="time"
@@ -171,7 +182,8 @@ export default function Chart() {
           </Hint>
         </XYPlot>
       )}
-      <button onClick={() => dailyChart()}>Daily Chart</button>
+      </div>
+      
     </div>
   );
 }

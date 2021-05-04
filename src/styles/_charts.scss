@@ -79,7 +79,12 @@ img {
 
 .chart {
     width: 70%;
-
+.chart-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: "space-around";
+}
 }
 
 .hint {
