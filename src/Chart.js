@@ -124,6 +124,14 @@ export default function Chart() {
         <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())}</h1>
         <h1>{state.asset.symbol.toUpperCase()}</h1>
         </div>
+      <div className="table">
+          <span className="key">price change
+          <span className="value">value</span>
+          </span>
+          
+      </div>
+         
+       
       </div>
       <div className="chart">
           <div className="chart-buttons">
