@@ -142,10 +142,10 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -154,6 +154,17 @@ form {
           justify-content: flex-start;
   background-color: white;
   color: white;
+}
+
+.chart-asset-info {
+  color: black;
+  width: 30%;
+  background: #ebe6e6;
+  margin-left: 50px;
+}
+
+.chart {
+  width: 70%;
 }
 
 body {

@@ -5,9 +5,21 @@ $textColor: white;
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     background-color: white;
     color: $textColor;
+    
+}
+.chart-asset-info {
+color: black;
+width: 30%;
+background: rgb(235, 230, 230);
+margin-left: 50px;
+}
+
+.chart {
+    width: 70%;
+
 }
