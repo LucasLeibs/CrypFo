@@ -191,7 +191,7 @@ export default function IndividualAsset({ asset }) {
         <Link
           to={{
             pathname: `/charts/${asset.id}`,
-            state: { asset: asset, prices: prices },
+            state: { asset: asset },
           }}
         >
           charts

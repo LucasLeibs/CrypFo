@@ -38,10 +38,11 @@ const percentChangeIcons = [
 export default function Chart() {
   const [hintValue, setHint] = useState("");
   const [dailyPrices, setDailyPrices] = useState([]);
+  const [loopData, setLoopData] = useState([])
   const [showDaily, setShowDaily] = useState(false);
   
-  const [show7Day, set7Day] = useState(false);
-
+  const [days7, set7Day] = useState([]);
+const [month, setMonthData] = useState([])
   const _onMouseLeave = () => {
     setHint("");
   };
@@ -49,39 +50,65 @@ export default function Chart() {
   const _onNearestX = (value) => {
     setHint(value);
   };
+  const fetchData = (days) => {
 
-  useEffect(() => {
     fetch(
       `https://api.coingecko.com/api/v3/coins/${state.asset.id}/market_chart?vs_currency=usd&days=1`
     )
       .then((res) => res.json())
       .then((data) => {
-        setDailyPrices(data.prices);
+        setLoopData(data.prices);
+        setDailyPrices(data.prices)
       });
+    fetch(
+      `https://api.coingecko.com/api/v3/coins/${state.asset.id}/market_chart?vs_currency=usd&days=7`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        set7Day(data.prices);
+      });
+    fetch(
+      `https://api.coingecko.com/api/v3/coins/${state.asset.id}/market_chart?vs_currency=usd&days=60`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setMonthData(data.prices);
+      });
+    
+  }
+
+  useEffect(() => {
+    fetchData()
+ 
   }, []);
+
+  const toggleCharts = (state) => {
+
+    setLoopData(state)
+  }
 
   console.log(dailyPrices);
   const { state } = useLocation();
 
-  const loopData = () => {
-    let data = [];
-    for (let i = 0; i < state.prices.length; i++) {
-      data.push({ x: new Date(state.prices[i][0]), y: state.prices[i][1] });
-    }
-    console.log(data);
-    return data;
-  };
+  // const loopData = () => {
+  //   let data = [];
+  //   for (let i = 0; i < state.prices.length; i++) {
+  //     data.push({ x: new Date(state.prices[i][0]), y: state.prices[i][1] });
+  //   }
+  //   console.log(data);
+  //   return data;
+  // };
 
-  const graphColor = () => {
-    return state.prices[state.prices.length - 1][1] > state.prices[0][1]
-      ? "#32cf4c"
-      : "#f75452";
-  };
-  const dailyGraphColor = () => {
-    return dailyPrices[dailyPrices.length - 1][1] > dailyPrices[0][1]
-      ? "#32cf4c"
-      : "#f75452";
-  };
+  // const graphColor = () => {
+  //   return state.prices[state.prices.length - 1][1] > state.prices[0][1]
+  //     ? "#32cf4c"
+  //     : "#f75452";
+  // };
+  // const dailyGraphColor = () => {
+  //   return dailyPrices[dailyPrices.length - 1][1] > dailyPrices[0][1]
+  //     ? "#32cf4c"
+  //     : "#f75452";
+  // };
 
   const percentChange = (percent) => {
     let s = percent.toString();
@@ -104,13 +131,14 @@ export default function Chart() {
     loopDailyData();
   };
 
-  const loopDailyData = () => {
+  const loopDailyData = (state) => {
+   
     let dailyData = [];
-    for (let i = 0; i < dailyPrices.length; i++) {
-      dailyData.push({ x: new Date(dailyPrices[i][0]), y: dailyPrices[i][1] });
+    for (let i = 0; i < loopData.length; i++) {
+      dailyData.push({ x: new Date(loopData[i][0]), y: loopData[i][1] });
     }
     return dailyData;
-  };
+  }
   return (
     <div className="chart-page-container">
       
@@ -135,13 +163,13 @@ export default function Chart() {
       </div>
       <div className="chart">
           <div className="chart-buttons">
-              <button onClick={() => dailyChart()}>1D</button>
-              <button>7D</button>
-              <button>1M</button>
+              <button onClick={() => toggleCharts(dailyPrices)}>1D</button>
+              <button onClick={() => toggleCharts(days7)}>7D</button>
+              <button onClick={() => toggleCharts(month)}>1M</button>
               <button>3M</button>
               <button>1Y</button>
               </div>
-      {showDaily === false ? (
+      {/* {showDaily === false ? (
           
         <XYPlot
           xType="time"
@@ -167,7 +195,7 @@ export default function Chart() {
             </div>
           </Hint>
         </XYPlot>
-      ) : (
+      ) : ( */}
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
@@ -178,7 +206,7 @@ export default function Chart() {
           <XAxis title="Time"></XAxis>
           <LineSeries
             onNearestXY={_onNearestX}
-            color={dailyGraphColor()}
+            color={'blue'}
             className="line"
             data={loopDailyData()}
           />
@@ -189,7 +217,7 @@ export default function Chart() {
             </div>
           </Hint>
         </XYPlot>
-      )}
+      
       </div>
       
     </div>
