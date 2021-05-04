@@ -71,8 +71,13 @@ export default function Chart() {
 
   const graphColor = () => {
     return state.prices[state.prices.length - 1][1] > state.prices[0][1]
-      ? "green"
-      : "red";
+      ? "#32cf4c"
+      : "#f75452";
+  };
+  const dailyGraphColor = () => {
+    return dailyPrices[dailyPrices.length - 1][1] > dailyPrices[0][1]
+      ? "#32cf4c"
+      : "#f75452";
   };
 
   const percentChange = (percent) => {
@@ -132,12 +137,12 @@ export default function Chart() {
           <XAxis title="Date"></XAxis>
           <LineSeries
             onNearestXY={_onNearestX}
-            color={"blue"}
+            color={graphColor()}
             className="line"
             data={loopData()}
           />
           <Hint value={hintValue}>
-            <div style={{ background: "black" }}>
+            <div className="setHint">
               <p>{hintValue.y} </p>
               <p>{moment(hintValue.x).format("MMM Do YY")}</p>
             </div>
@@ -154,12 +159,12 @@ export default function Chart() {
           <XAxis title="Time"></XAxis>
           <LineSeries
             onNearestXY={_onNearestX}
-            color={"blue"}
+            color={dailyGraphColor()}
             className="line"
             data={loopDailyData()}
           />
           <Hint value={hintValue}>
-            <div style={{ background: "black" }}>
+            <div className="hint">
               <p>{hintValue.y} </p>
               <p>{moment(hintValue.x).calendar()}</p>
             </div>
