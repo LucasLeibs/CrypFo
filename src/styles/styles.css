@@ -163,6 +163,91 @@ form {
   margin-left: 50px;
 }
 
+.chart-asset-info .current-price {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.chart-asset-info .current-price h1 {
+  font-size: 1.5rem;
+  color: grey;
+}
+
+.chart-asset-info .current-price h1 data {
+  color: black;
+  font-weight: bold;
+}
+
+.chart-asset-info .current-price .p-change-pos {
+  background: #32cf4c;
+  color: white;
+  border-radius: 1rem;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  height: 40px;
+}
+
+.chart-asset-info .current-price .p-change-neg {
+  background: #f75452;
+  color: white;
+  border-radius: 1rem;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  height: 40px;
+}
+
+.chart-asset-info img {
+  width: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.chart-asset-info .chart-asset-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
 .chart {
   width: 70%;
 }

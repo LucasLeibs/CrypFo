@@ -1,5 +1,7 @@
 $background: #292e36;
 $textColor: white;
+$green: #32cf4c;
+$red: #f75452;
 
 .chart-page-container {
     width: 100vw;
@@ -17,7 +19,60 @@ color: black;
 width: 30%;
 background: rgb(235, 230, 230);
 margin-left: 50px;
+.current-price {
+    background: white;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    h1 {
+        font-size: 1.5rem;
+        color: grey;
+        data {
+            color: black;
+            font-weight: bold;
+        }
+        }
+    .p-change-pos {
+        background: $green;
+        color: white;
+        border-radius: 1rem;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        height: 40px
+    }
+    .p-change-neg {
+        background: $red;
+        color: white;
+        border-radius: 1rem;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        height: 40px
+    }
+     
 }
+img {
+    width: 60px;
+    object-fit: contain;
+}
+    .chart-asset-header {
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    
+
+
+}
+
 
 .chart {
     width: 70%;
