@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
-import { XYPlot, LineSeries, Hint, XAxis, YAxis } from "react-vis";
+import { XYPlot, LineSeries, Hint, XAxis, YAxis, MarkSeries } from "react-vis";
 import "../node_modules/react-vis/dist/style.css";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
@@ -44,12 +44,14 @@ const [days7, set7Day] = useState([]);
 const [month, setMonthData] = useState([])
 const [month3, set3MonthData] = useState([])
 const [year, setYearData] = useState([])
+const [hoveredNode, setHoveredNode] = useState(null)
   const _onMouseLeave = () => {
     setHint("");
   };
 
   const _onNearestX = (value) => {
     setHint(value);
+    setHoveredNode(value)
   };
   const fetchData = (days) => {
 
@@ -188,19 +190,26 @@ const [year, setYearData] = useState([])
         >
           <YAxis tickFormat={(v) => `${v.toString().slice(0, 2)}K`} title="Price"></YAxis>
           <XAxis title="Time"></XAxis>
+          {hoveredNode && <MarkSeries color="grey" data={[hoveredNode]} />}
           <LineSeries
             onNearestXY={_onNearestX}
             color={'blue'}
             className="line"
             animation={'gentle'}
             data={loopDailyData()}
+            onSeriesMouseOut={() => {setHint('')}}
           />
+        {hintValue ? 
           <Hint value={hintValue}>
+
             <div className="hint">
               <p>{hintValue.y} </p>
               <p>{moment(hintValue.x).calendar()}</p>
             </div>
+        
+
           </Hint>
+: <></> }
         </XYPlot>
       
       </div>
