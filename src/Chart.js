@@ -39,10 +39,11 @@ export default function Chart() {
   const [hintValue, setHint] = useState("");
   const [dailyPrices, setDailyPrices] = useState([]);
   const [loopData, setLoopData] = useState([])
-  const [showDaily, setShowDaily] = useState(false);
-  
-  const [days7, set7Day] = useState([]);
+ 
+const [days7, set7Day] = useState([]);
 const [month, setMonthData] = useState([])
+const [month3, set3MonthData] = useState([])
+const [year, setYearData] = useState([])
   const _onMouseLeave = () => {
     setHint("");
   };
@@ -73,6 +74,20 @@ const [month, setMonthData] = useState([])
       .then((res) => res.json())
       .then((data) => {
         setMonthData(data.prices);
+      });
+    fetch(
+      `https://api.coingecko.com/api/v3/coins/${state.asset.id}/market_chart?vs_currency=usd&days=180`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        set3MonthData(data.prices);
+      });
+    fetch(
+      `https://api.coingecko.com/api/v3/coins/${state.asset.id}/market_chart?vs_currency=usd&days=360`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setYearData(data.prices);
       });
     
   }
@@ -126,10 +141,6 @@ const [month, setMonthData] = useState([])
     );
   };
 
-  const dailyChart = () => {
-    setShowDaily(!showDaily);
-    loopDailyData();
-  };
 
   const loopDailyData = (state) => {
    
@@ -166,36 +177,9 @@ const [month, setMonthData] = useState([])
               <button onClick={() => toggleCharts(dailyPrices)}>1D</button>
               <button onClick={() => toggleCharts(days7)}>7D</button>
               <button onClick={() => toggleCharts(month)}>1M</button>
-              <button>3M</button>
-              <button>1Y</button>
+              <button onClick={() => toggleCharts(month3)}>3M</button>
+              <button onClick={() => toggleCharts(year)}>1Y</button>
               </div>
-      {/* {showDaily === false ? (
-          
-        <XYPlot
-          xType="time"
-          onMouseLeave={_onMouseLeave}
-          height={500}
-          width={700}
-        >
-          <YAxis
-            tickFormat={(v) => `${v.toString().slice(0, 2)}K`}
-            title="Price"
-          ></YAxis>
-          <XAxis title="Date"></XAxis>
-          <LineSeries
-            onNearestXY={_onNearestX}
-            color={graphColor()}
-            className="line"
-            data={loopData()}
-          />
-          <Hint value={hintValue}>
-            <div className="hint">
-              <p>{hintValue.y} </p>
-              <p>{moment(hintValue.x).format("MMM Do YY")}</p>
-            </div>
-          </Hint>
-        </XYPlot>
-      ) : ( */}
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
@@ -208,6 +192,7 @@ const [month, setMonthData] = useState([])
             onNearestXY={_onNearestX}
             color={'blue'}
             className="line"
+            animation={'gentle'}
             data={loopDailyData()}
           />
           <Hint value={hintValue}>
