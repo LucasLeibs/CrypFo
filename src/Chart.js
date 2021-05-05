@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Modal from "react-bootstrap/Modal";
-import ModalBody from "react-bootstrap/ModalBody";
-import ModalHeader from "react-bootstrap/ModalHeader";
+
 import { XYPlot, LineSeries, Hint, XAxis, YAxis, MarkSeries } from "react-vis";
 import "../node_modules/react-vis/dist/style.css";
 import { useLocation } from "react-router-dom";
@@ -39,7 +37,7 @@ export default function Chart() {
   const [hintValue, setHint] = useState("");
   const [dailyPrices, setDailyPrices] = useState([]);
   const [loopData, setLoopData] = useState([])
- 
+ const [highlighted, setHighlight] = useState('daily')
 const [days7, set7Day] = useState([]);
 const [month, setMonthData] = useState([])
 const [month3, set3MonthData] = useState([])
@@ -99,9 +97,11 @@ const [hoveredNode, setHoveredNode] = useState(null)
  
   }, []);
 
-  const toggleCharts = (state) => {
+  const toggleCharts = (e, state) => {
 
     setLoopData(state)
+   setHighlight(e.target.value.toString())
+   console.log(highlighted)
   }
 
   console.log(dailyPrices);
@@ -116,11 +116,16 @@ const [hoveredNode, setHoveredNode] = useState(null)
   //   return data;
   // };
 
-  // const graphColor = () => {
-  //   return state.prices[state.prices.length - 1][1] > state.prices[0][1]
-  //     ? "#32cf4c"
-  //     : "#f75452";
-  // };
+  const graphColor = () => {
+    if (loopData.length > 0) {
+    return loopData[loopData.length - 1][1] > loopData[0][1]
+      ? "#32cf4c"
+      : "#f75452"
+    }
+      else {
+        return 'blue'
+      }
+  };
   // const dailyGraphColor = () => {
   //   return dailyPrices[dailyPrices.length - 1][1] > dailyPrices[0][1]
   //     ? "#32cf4c"
@@ -176,11 +181,11 @@ const [hoveredNode, setHoveredNode] = useState(null)
       </div>
       <div className="chart">
           <div className="chart-buttons">
-              <button onClick={() => toggleCharts(dailyPrices)}>1D</button>
-              <button onClick={() => toggleCharts(days7)}>7D</button>
-              <button onClick={() => toggleCharts(month)}>1M</button>
-              <button onClick={() => toggleCharts(month3)}>3M</button>
-              <button onClick={() => toggleCharts(year)}>1Y</button>
+              <button value="daily" className={highlighted == 'daily' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e,dailyPrices)}>1D</button>
+              <button value="week" className={highlighted == 'week' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, days7)}>7D</button>
+              <button value="monthly" className={highlighted == 'monthly' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, month)}>1M</button>
+              <button value="month3" className={highlighted == 'month3' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, month3)}>3M</button>
+              <button value="year" className={highlighted == 'year' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, year)}>1Y</button>
               </div>
         <XYPlot
           xType="time"
@@ -193,7 +198,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
           {hoveredNode && <MarkSeries color="grey" data={[hoveredNode]} />}
           <LineSeries
             onNearestXY={_onNearestX}
-            color={'blue'}
+            color={graphColor()}
             className="line"
             animation={'gentle'}
             data={loopDailyData()}
