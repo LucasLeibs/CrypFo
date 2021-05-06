@@ -170,12 +170,21 @@ const [hoveredNode, setHoveredNode] = useState(null)
         <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())}</h1>
         <h1>{state.asset.symbol.toUpperCase()}</h1>
         </div>
-      <div className="table">
-          <span className="key">price change
-          <span className="value">value</span>
-          </span>
+      <table className="table">
+        <tr>
+          <td className="key">Price Change</td>
+          <td className="value">{ state.asset.price_change_percentage_24h.toString().includes('-') ?  `$ ${state.asset.price_change_24h}`: `+ $${state.asset.price_change_24h}`}</td>
+          </tr>
+          <tr>
+          <td className="key">All Time High</td>
+          <td className="value">${state.asset.ath}</td>
+          </tr>
+          <tr>
+          <td className="key">Market Rank</td>
+          <td className="value">{state.asset.market_cap_rank}</td>
+          </tr>
           
-      </div>
+      </table>
          
        
       </div>

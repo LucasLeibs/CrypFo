@@ -102,9 +102,12 @@ img {
   box-shadow: $shadow;
 }
 .table {
-   
+    width: 100%;
+  .key {
+      text-align: left;
+  }
     .value {
-        float: left
+        text-align: right;
     }
 }
 
@@ -114,8 +117,7 @@ img {
 .highlighted-button {
 
 border-radius: 1rem;
-padding: 15px;
-margin-bottom: 20px;
+padding: 10px;
+margin:10px;
 border: none;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-}
+box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;}
