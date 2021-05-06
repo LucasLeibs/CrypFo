@@ -148,6 +148,12 @@ const [hoveredNode, setHoveredNode] = useState(null)
     );
   };
 
+  const graphDataPercentChange = () => {
+     let percentFromData = (1 - hintValue.y / state.asset.current_price) * 100
+     let string = percentFromData.toString()
+     return string.includes('-') ? <data className="negative">{string.slice(0,5)}%</data> : <data className="positive">{string.slice(0,4)}%</data>
+  }
+
 
   const loopDailyData = (state) => {
    
@@ -217,8 +223,9 @@ const [hoveredNode, setHoveredNode] = useState(null)
           <Hint value={hintValue}>
 
             <div className="hint">
-              <p>{hintValue.y} </p>
-              <p>{moment(hintValue.x).calendar()}</p>
+              <p>Price: {hintValue.y.toLocaleString()}   ( {graphDataPercentChange()} )</p>
+              <p>Date: {moment(hintValue.x).calendar()}</p>
+            
             </div>
         
 

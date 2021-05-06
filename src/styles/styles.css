@@ -137,7 +137,7 @@ form {
 }
 
 .chart-page-container {
-  width: 100vw;
+  width: 80vw;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -304,6 +304,14 @@ form {
   border: none;
   -webkit-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
           box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.negative {
+  color: #f75452;
+}
+
+.positive {
+  color: #32cf4c;
 }
 
 body {
