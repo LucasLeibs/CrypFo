@@ -104,7 +104,6 @@ th {
 }
 
 form {
-  margin-top: 10vw;
   margin-bottom: 20px;
   width: 100vw;
   display: -webkit-box;
@@ -339,7 +338,8 @@ body {
 }
 
 .page-container .logo {
-  width: 15vw;
+  width: 20vw;
+  margin-bottom: 5vw;
 }
 
 #clock {

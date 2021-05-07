@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import Search from './Search'
 import Asset from './Asset'
 import moment from 'moment';
-import logo from './logo.png'
+import logo from './block.png'
 
 import {
   BrowserRouter as Router,
