@@ -176,8 +176,8 @@ form {
 }
 
 .chart-asset-info .current-price h1 {
-  font-size: 1.5rem;
-  color: grey;
+  font-size: 1.2rem;
+  color: #3f3131;
 }
 
 .chart-asset-info .current-price h1 data {
@@ -245,6 +245,7 @@ form {
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  margin-top: 10px;
 }
 
 .chart {

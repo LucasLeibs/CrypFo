@@ -107,14 +107,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
   console.log(dailyPrices);
   const { state } = useLocation();
 
-  // const loopData = () => {
-  //   let data = [];
-  //   for (let i = 0; i < state.prices.length; i++) {
-  //     data.push({ x: new Date(state.prices[i][0]), y: state.prices[i][1] });
-  //   }
-  //   console.log(data);
-  //   return data;
-  // };
+
 
   const graphColor = () => {
     if (loopData.length > 0) {
@@ -126,11 +119,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
         return 'blue'
       }
   };
-  // const dailyGraphColor = () => {
-  //   return dailyPrices[dailyPrices.length - 1][1] > dailyPrices[0][1]
-  //     ? "#32cf4c"
-  //     : "#f75452";
-  // };
+ 
 
   const percentChange = (percent) => {
     let s = percent.toString();
@@ -213,7 +202,8 @@ const [hoveredNode, setHoveredNode] = useState(null)
           {hoveredNode && <MarkSeries color="grey" data={[hoveredNode]} />}
           <LineSeries
             onNearestXY={_onNearestX}
-            color={graphColor()}
+            color={graphColor()}Y
+
             className="line"
             animation={'gentle'}
             data={loopDailyData()}
