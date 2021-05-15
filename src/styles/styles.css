@@ -248,6 +248,13 @@ form {
   margin-top: 10px;
 }
 
+.chart-asset-info .chart-symbol {
+  background: white;
+  padding: 5px;
+  border-radius: 3px;
+  color: grey;
+}
+
 .chart {
   width: 70%;
 }

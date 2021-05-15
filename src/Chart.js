@@ -163,7 +163,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
           <div className="chart-asset-header">
           <img src={state.asset.image}></img>
         <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())}</h1>
-        <h1>{state.asset.symbol.toUpperCase()}</h1>
+        <h1 className="chart-symbol">{state.asset.symbol.toUpperCase()}</h1>
         </div>
       <table className="table">
         <tr>
