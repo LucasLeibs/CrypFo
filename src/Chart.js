@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-
+import MediaQuery from 'react-responsive'
 import { XYPlot, LineSeries, Hint, XAxis, YAxis, MarkSeries } from "react-vis";
 import "../node_modules/react-vis/dist/style.css";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
+import { Media } from "react-bootstrap";
 const percentChangeIcons = [
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -191,6 +192,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
               <button value="month3" className={highlighted == 'month3' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, month3)}>3M</button>
               <button value="year" className={highlighted == 'year' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, year)}>1Y</button>
               </div>
+            <MediaQuery minDeviceWidth={769}>
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
@@ -222,7 +224,40 @@ const [hoveredNode, setHoveredNode] = useState(null)
           </Hint>
 : <></> }
         </XYPlot>
-      
+        </MediaQuery>
+        <MediaQuery maxDeviceWidth={768}>
+        <XYPlot
+          xType="time"
+          onMouseLeave={_onMouseLeave}
+          height={200}
+          width={500}
+        >
+          <YAxis tickFormat={(v) => `${v.toString().slice(0, 2)}K`} title="Price"></YAxis>
+          <XAxis title="Time"></XAxis>
+          {hoveredNode && <MarkSeries color="grey" data={[hoveredNode]} />}
+          <LineSeries
+            onNearestXY={_onNearestX}
+            color={graphColor()}Y
+
+            className="line"
+            animation={'gentle'}
+            data={loopDailyData()}
+            onSeriesMouseOut={() => {setHint('')}}
+          />
+        {hintValue ? 
+          <Hint value={hintValue}>
+
+            <div className="hint">
+              <p><strong>Price: {hintValue.y.toLocaleString()}   ( {graphDataPercentChange()} )</strong></p>
+              <p><strong>Date: {moment(hintValue.x).calendar()}</strong></p>
+            
+            </div>
+        
+
+          </Hint>
+: <></> }
+        </XYPlot>
+        </MediaQuery>
       </div>
       
     </div>

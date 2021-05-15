@@ -1,0 +1,124 @@
+@media only screen and (max-width: 768px) {
+    .chart-page-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        color: $textColor;
+        
+    }
+    .chart {
+        width: 100%;
+
+}
+
+
+.chart-asset-info {
+    color: black;
+    width: 90%;
+    background: $secondary;
+    margin: 0px;
+   
+    .current-price {
+        background: white;
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-around;
+        h1 {
+            font-size: 1.2rem;
+            color: rgb(63, 49, 49);
+            data {
+                color: black;
+                font-weight: bold;
+            }
+            }
+        .p-change-pos {
+            background: $green;
+            color: white;
+            border-radius: 1rem;
+            font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            height: 40px
+        }
+        .p-change-neg {
+            background: $red;
+            color: white;
+            border-radius: 1rem;
+            font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            height: 40px
+        }
+         
+    }
+    img {
+        width: 60px;
+        object-fit: contain;
+    }
+        .chart-asset-header {
+            display: flex; 
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .chart-symbol {
+            background: white;
+            padding:5px;
+            border-radius: 3px;
+            color:grey
+        }
+    
+        
+    
+    
+    }
+    
+    
+    .chart {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    .chart-buttons {
+        display: flex;
+        
+        align-items: center;
+        justify-content: "space-around";
+        .button {
+            margin: 5px;
+            border-radius: 1rem;
+            border: none;
+            padding: 5px;
+        }
+    }
+    }
+    
+    .hint {
+      background:$secondary;
+      opacity: 0.8;
+      color: black;
+      padding: 5px;
+      border-radius: 1rem;
+      box-shadow: $shadow;
+    }
+    .table {
+        width: 100%;
+      .key {
+          text-align: left;
+      }
+        .value {
+            text-align: right;
+        }
+    }
+    
+}
