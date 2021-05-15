@@ -213,8 +213,8 @@ const [hoveredNode, setHoveredNode] = useState(null)
           <Hint value={hintValue}>
 
             <div className="hint">
-              <p>Price: {hintValue.y.toLocaleString()}   ( {graphDataPercentChange()} )</p>
-              <p>Date: {moment(hintValue.x).calendar()}</p>
+              <p><strong>Price: {hintValue.y.toLocaleString()}   ( {graphDataPercentChange()} )</strong></p>
+              <p><strong>Date: {moment(hintValue.x).calendar()}</strong></p>
             
             </div>
         
