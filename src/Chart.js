@@ -168,11 +168,11 @@ const [hoveredNode, setHoveredNode] = useState(null)
       <table className="table">
         <tr>
           <td className="key">Price Change</td>
-          <td className="value">{ state.asset.price_change_percentage_24h.toString().includes('-') ?  `$ ${state.asset.price_change_24h}`: `+ $${state.asset.price_change_24h}`}</td>
+          <td className="value">{ state.asset.price_change_percentage_24h.toString().includes('-') ?  `$ ${state.asset.price_change_24h.toLocaleString()}`: `+ $${state.asset.price_change_24h.toLocaleString()}`}</td>
           </tr>
           <tr>
           <td className="key">All Time High</td>
-          <td className="value">${state.asset.ath}</td>
+          <td className="value">${state.asset.ath.toLocaleString()}</td>
           </tr>
           <tr>
           <td className="key">Market Rank</td>
