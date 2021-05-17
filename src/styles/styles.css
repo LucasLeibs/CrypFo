@@ -255,10 +255,6 @@ form {
   color: grey;
 }
 
-.chart {
-  width: 70%;
-}
-
 .chart .chart-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -378,13 +374,9 @@ body {
     background-color: white;
     color: white;
   }
-  .chart {
-    width: 100%;
-  }
   .chart-asset-info {
     color: black;
     width: 90%;
-    height: 100%;
     background: #f7f3f3;
     margin: 0px;
   }

@@ -155,36 +155,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
   }
   return (
     <div className="chart-page-container">
-      
-      <div className="chart-asset-info">
-      <div className="current-price">
-     <h1>Current price: <data>$ {state.asset.current_price.toLocaleString()}</data></h1>
-     {percentChange(state.asset.price_change_percentage_24h)}
-          </div>
-          <div className="chart-asset-header">
-          <img src={state.asset.image}></img>
-        <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())}</h1>
-        <h1 className="chart-symbol">{state.asset.symbol.toUpperCase()}</h1>
-        </div>
-      <table className="table">
-        <tr>
-          <td className="key">Price Change</td>
-          <td className="value">{ state.asset.price_change_percentage_24h.toString().includes('-') ?  `$ ${state.asset.price_change_24h.toLocaleString()}`: `+ $${state.asset.price_change_24h.toLocaleString()}`}</td>
-          </tr>
-          <tr>
-          <td className="key">All Time High</td>
-          <td className="value">${state.asset.ath.toLocaleString()}</td>
-          </tr>
-          <tr>
-          <td className="key">Market Rank</td>
-          <td className="value">{state.asset.market_cap_rank}</td>
-          </tr>
-          
-      </table>
-         
-       
-      </div>
-      <div className="chart">
+      <section className="chart">
           <div className="chart-buttons">
               <button value="daily" className={highlighted == 'daily' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e,dailyPrices)}>1D</button>
               <button value="week" className={highlighted == 'week' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, days7)}>7D</button>
@@ -229,11 +200,11 @@ const [hoveredNode, setHoveredNode] = useState(null)
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
-          height={300}
+          height={400}
           width={375}
         >
           <YAxis tickFormat={(v) => `${v.toString().slice(0, 2)}K`} title="Price"></YAxis>
-          <XAxis title="Time"></XAxis>
+          <XAxis tickTotal={5} title="Time"></XAxis>
           {hoveredNode && <MarkSeries color="grey" data={[hoveredNode]} />}
           <LineSeries
             onNearestXY={_onNearestX}
@@ -258,7 +229,37 @@ const [hoveredNode, setHoveredNode] = useState(null)
 : <></> }
         </XYPlot>
         </MediaQuery>
-      </div>
+      </section>
+      
+      <section className="chart-asset-info">
+      <div className="current-price">
+     <h1>Current price: <data>$ {state.asset.current_price.toLocaleString()}</data></h1>
+     {percentChange(state.asset.price_change_percentage_24h)}
+          </div>
+          <div className="chart-asset-header">
+          <img src={state.asset.image}></img>
+        <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())}</h1>
+        <h1 className="chart-symbol">{state.asset.symbol.toUpperCase()}</h1>
+        </div>
+      <table className="table">
+        <tr>
+          <td className="key">Price Change</td>
+          <td className="value">{ state.asset.price_change_percentage_24h.toString().includes('-') ?  `$ ${state.asset.price_change_24h.toLocaleString()}`: `+ $${state.asset.price_change_24h.toLocaleString()}`}</td>
+          </tr>
+          <tr>
+          <td className="key">All Time High</td>
+          <td className="value">${state.asset.ath.toLocaleString()}</td>
+          </tr>
+          <tr>
+          <td className="key">Market Rank</td>
+          <td className="value">{state.asset.market_cap_rank}</td>
+          </tr>
+          
+      </table>
+         
+       
+      </section>
+      
       
     </div>
   );
