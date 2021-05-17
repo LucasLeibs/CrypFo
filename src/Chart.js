@@ -229,7 +229,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
-          height={200}
+          height={300}
           width={375}
         >
           <YAxis tickFormat={(v) => `${v.toString().slice(0, 2)}K`} title="Price"></YAxis>
