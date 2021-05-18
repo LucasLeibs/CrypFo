@@ -201,7 +201,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
           xType="time"
           onMouseLeave={_onMouseLeave}
           height={400}
-          width={350}
+          width={300}
         >
           <YAxis tickFormat={(v) => `${v.toString().slice(0, 2)}K`} title="Price"></YAxis>
           <XAxis tickTotal={5} title="Time"></XAxis>
