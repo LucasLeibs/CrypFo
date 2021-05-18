@@ -317,6 +317,16 @@ form {
   color: #32cf4c;
 }
 
+#down-arrow1 {
+  width: 20px;
+  margin-right: 5px;
+}
+
+#up-arrow1 {
+  width: 20px;
+  margin-right: 5px;
+}
+
 body {
   background-color: #292e36;
 }
@@ -443,6 +453,7 @@ body {
     text-align: right;
   }
   .current-price {
+    margin-top: 10%;
     background: white;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -452,9 +463,13 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
     color: black;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
   }
   .current-price p {
     margin: 2px;
@@ -486,7 +501,8 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
     padding: 5px;
-    height: 20px;
+    height: 40px;
+    width: 200px;
   }
   .current-price .p-change-neg {
     background: #f75452;
@@ -508,6 +524,7 @@ body {
             justify-content: center;
     padding: 5px;
     height: 40px;
+    width: 200px;
   }
   .chart-buttons {
     display: -webkit-box;
@@ -523,6 +540,7 @@ body {
     -webkit-box-pack: "space-around";
         -ms-flex-pack: "space-around";
             justify-content: "space-around";
+    margin-bottom: 10%;
   }
   .chart-buttons .button {
     margin: 10px;

@@ -80,11 +80,14 @@ section {
         }
     }
     .current-price {
+        margin-top: 10%;
         background: white;
         display: flex; 
         flex-direction: column;
        color: black;
-       justify-content:flex-start;
+       justify-content:center;
+       align-items: center;
+       width: 100%;
         p {
             margin: 2px;
         }
@@ -106,7 +109,8 @@ section {
                 align-items: center;
                 justify-content: center;
                 padding: 5px;
-                height: 20px;
+                height: 40px;
+                width: 200px;
           
             }
             .p-change-neg {
@@ -119,7 +123,8 @@ section {
                 align-items: center;
                 justify-content: center;
                 padding: 5px;
-                height: 40px
+                height: 40px;
+                width: 200px;
             }
           
 }
@@ -128,6 +133,7 @@ section {
     flex-direction: row;
     align-items: center;
     justify-content: "space-around";
+    margin-bottom: 10%;
     .button {
         margin: 10px;
         border-radius: 1rem;

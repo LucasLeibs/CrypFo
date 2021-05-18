@@ -8,7 +8,7 @@ import { Media } from "react-bootstrap";
 const percentChangeIcons = [
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      id="down-arrow"
+      id="down-arrow1"
       className="h-6 w-6"
       viewBox="0 0 20 20"
       fill="currentColor"
@@ -21,7 +21,7 @@ const percentChangeIcons = [
     </svg>,
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      id="up-arrow"
+      id="up-arrow1"
       className="h-5 w-5"
       viewBox="0 0 20 20"
       fill="currentColor"
@@ -236,9 +236,9 @@ const [hoveredNode, setHoveredNode] = useState(null)
        <div className="current-price">
        {percentChange(state.asset.price_change_percentage_24h)}
        <h1>{state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())} price:<data>$ {state.asset.current_price.toLocaleString()}</data></h1>
-     <p>{hintValue ? moment(hintValue.x).calendar() : ''}</p>
-     <p>{hintValue ? hintValue.y.toLocaleString() : ''}</p>
-     <p>{hintValue ? graphDataPercentChange(): ''}</p>
+     <data>{hintValue ? moment(hintValue.x).calendar() : ''}</data>
+     <p>{hintValue ?  '$' + hintValue.y.toLocaleString(): ''}</p>
+     <data>{hintValue ? graphDataPercentChange(): ''}</data>
           </div>
         <XYPlot
           xType="time"
