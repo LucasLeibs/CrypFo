@@ -155,6 +155,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
   }
   return (
     <div className="chart-page-container">
+      <MediaQuery minDeviceWidth={1340}>
       <section className="chart">
           <div className="chart-buttons">
               <button value="daily" className={highlighted == 'daily' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e,dailyPrices)}>1D</button>
@@ -163,7 +164,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
               <button value="month3" className={highlighted == 'month3' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, month3)}>3M</button>
               <button value="year" className={highlighted == 'year' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, year)}>1Y</button>
               </div>
-            <MediaQuery minDeviceWidth={769}>
+            
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
@@ -195,44 +196,14 @@ const [hoveredNode, setHoveredNode] = useState(null)
           </Hint>
 : <></> }
         </XYPlot>
-        </MediaQuery>
-        <MediaQuery maxDeviceWidth={768}>
-        <XYPlot
-          xType="time"
-          onMouseLeave={_onMouseLeave}
-          height={400}
-          width={300}
-        >
-          <YAxis tickFormat={(v) => `${v.toString().slice(0, 2)}K`} title="Price"></YAxis>
-          <XAxis tickTotal={5} title="Time"></XAxis>
-          {hoveredNode && <MarkSeries color="grey" data={[hoveredNode]} />}
-          <LineSeries
-            onNearestXY={_onNearestX}
-            color={graphColor()}Y
+       
+       
 
-            className="line"
-            animation={'gentle'}
-            data={loopDailyData()}
-            onSeriesMouseOut={() => {setHint('')}}
-          />
-        {hintValue ? 
-          <Hint value={hintValue}>
-
-            <div className="hint">
-              <p><strong>Price: {hintValue.y.toLocaleString()}   ( {graphDataPercentChange()} )</strong></p>
-              <p><strong>Date: {moment(hintValue.x).calendar()}</strong></p>
-            
-            </div>
-        
-
-          </Hint>
-: <></> }
-        </XYPlot>
-        </MediaQuery>
       </section>
-      
+     
       <section className="chart-asset-info">
       <div className="current-price">
+      
      <h1>Current price: <data>$ {state.asset.current_price.toLocaleString()}</data></h1>
      {percentChange(state.asset.price_change_percentage_24h)}
           </div>
@@ -259,7 +230,44 @@ const [hoveredNode, setHoveredNode] = useState(null)
          
        
       </section>
-      
+       </MediaQuery>
+       
+       <MediaQuery maxDeviceWidth={1339}>
+       <div className="current-price">
+       {percentChange(state.asset.price_change_percentage_24h)}
+       <h1>{state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())} price:<data>$ {state.asset.current_price.toLocaleString()}</data></h1>
+     <p>{hintValue ? moment(hintValue.x).calendar() : ''}</p>
+     <p>{hintValue ? hintValue.y.toLocaleString() : ''}</p>
+     <p>{hintValue ? graphDataPercentChange(): ''}</p>
+          </div>
+        <XYPlot
+          xType="time"
+          onMouseLeave={_onMouseLeave}
+          height={400}
+          width={375}
+       
+        >
+       
+          {hoveredNode && <MarkSeries color="grey" data={[hoveredNode]} />}
+          <LineSeries
+            onNearestX={_onNearestX}
+            color={graphColor()}
+
+            className="line"
+            animation={'gentle'}
+            data={loopDailyData()}
+            onSeriesMouseOut={() => {setHint('')}}
+          />
+        
+        </XYPlot>
+        <div className="chart-buttons">
+              <button value="daily" className={highlighted == 'daily' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e,dailyPrices)}>1D</button>
+              <button value="week" className={highlighted == 'week' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, days7)}>7D</button>
+              <button value="monthly" className={highlighted == 'monthly' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, month)}>1M</button>
+              <button value="month3" className={highlighted == 'month3' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, month3)}>3M</button>
+              <button value="year" className={highlighted == 'year' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, year)}>1Y</button>
+              </div>
+        </MediaQuery>
       
     </div>
   );

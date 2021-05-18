@@ -43,10 +43,10 @@ const [time, setTime] = useState(moment().format('LTS'))
 
 }
 
-const update = () => {
-setTime(moment().format('LTS'))
-}
-setInterval(update,1000)
+// const update = () => {
+// setTime(moment().format('LTS'))
+// }
+// setInterval(update,1000)
 
  const filteredCoins = assets.filter(asset => asset.id.toLowerCase().includes(input.toLowerCase()))
   //  const logoSearch = (input) => {
@@ -64,8 +64,8 @@ setInterval(update,1000)
           <Route 
          exact
           path="/">
-      <p className="time">{time}</p>
-     <p>{clock}</p>
+      {/* <p className="time">{time}</p>
+     <p>{clock}</p> */}
       <img className="logo"src={logo}></img>
           <Search search={search} assets={assets}></Search>
           <Asset filterAssets={filteredCoins} assets={assets}/>
