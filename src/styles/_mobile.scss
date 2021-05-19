@@ -141,4 +141,51 @@ section {
         padding: 10px;
     }
 }
+
+
+// assets 
+.name {
+    padding-left: 10px;
+    font-weight: bold;
+    width: 75%;
+    img {
+        width: 30px;
+        margin-bottom: -10px;
+        margin-right: 5px;
+    
+    h3 {
+        color: grey;
+    }
+}
+}
+
+//search 
+form {
+
+    margin-bottom: 0.5vw;
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+  }
+  
+.search-bar {
+    outline: none;
+    border: none;
+      width: 50%;
+      height: 35px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  padding-left: 10px;
+    &:focus {
+        outline: none;
+    }
+}
+
+.logo {
+    margin-top: 5vw;
+    width: 50vw;
+   margin-bottom: 5vw;
+}
 }

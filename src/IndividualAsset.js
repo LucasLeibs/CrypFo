@@ -5,7 +5,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import "react-circular-progressbar/dist/styles.css";
-import moment from "moment";
+import MediaQuery from 'react-responsive'
 import { Link } from "react-router-dom";
 
 const percentChangeIcons = [
@@ -42,23 +42,6 @@ export default function IndividualAsset({ asset }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-//   useEffect(() => {
-//     let coinPrices = localStorage.getItem("prices");
-
-//     if (coinPrices) {
-//       coinPrices = JSON.parse(coinPrices);
-//       setPrices(coinPrices);
-//     } else {
-//       fetch(
-//         `https://api.coingecko.com/api/v3/coins/${asset.id}/market_chart?vs_currency=usd&days=7&interval=hourly`
-//       )
-//         .then((res) => res.json())
-//         .then((data) => {
-//           setPrices(data.prices);
-//           localStorage.setItem("coinPrices", JSON.stringify(data.prices));
-//         });
-//     }
-//   }, []);
 
   const loopData = () => {
     let data = [];
@@ -123,6 +106,7 @@ export default function IndividualAsset({ asset }) {
 
   return (
     <tr className="row">
+      <MediaQuery minDeviceWidth={1340}>
       <td className="name">
         <p>
           <img src={asset.image}></img>
@@ -197,6 +181,26 @@ export default function IndividualAsset({ asset }) {
           charts
         </Link>
       </td>
+      </MediaQuery>
+      <MediaQuery maxDeviceWidth={1339}>
+      <td className="name">
+        <p>
+          <img src={asset.image}></img>
+          {asset.id.replace(
+            asset.id.charAt(0),
+            asset.id.charAt(0).toUpperCase()
+          )}{" "}
+          <h3>{asset.symbol.toUpperCase()}</h3>
+        </p>
+      </td>
+
+      <td className="price">
+        <p> $ {asset.current_price.toLocaleString()}</p>
+        {percentChange(asset.price_change_percentage_24h)}
+      </td>
+     
+    
+      </MediaQuery>
     </tr>
   );
 }
