@@ -184,7 +184,14 @@ export default function IndividualAsset({ asset }) {
       </MediaQuery>
       <MediaQuery maxDeviceWidth={1339}>
       <td className="name">
-        <p>
+      <Link
+      className="link"
+          to={{
+            pathname: `/charts/${asset.id}`,
+            state: { asset: asset },
+          }}
+        >
+          <p>
           <img src={asset.image}></img>
           {asset.id.replace(
             asset.id.charAt(0),
@@ -192,6 +199,8 @@ export default function IndividualAsset({ asset }) {
           )}{" "}
           <h3>{asset.symbol.toUpperCase()}</h3>
         </p>
+        </Link>
+       
       </td>
 
       <td className="price">
