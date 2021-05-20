@@ -1,243 +1,218 @@
-$secondary: rgb(247, 243, 243); 
+$secondary: rgb(247, 243, 243);
 
 @media only screen and (max-width: 1339px) {
-    .chart-page-container {
-        width: 100vw;
-        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: white;
-        color: $textColor;
-  
-    }
-   
-section {
-        width: 100%;
-        height: 100vh;
-          
+  .chart-page-container {
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: $textColor;
   }
 
-.chart-asset-info {
+  section {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .chart-asset-info {
     color: black;
-   margin-top: 100px;
+    margin-top: 100px;
     width: 100%;
     height: 100vh;
     background: $secondary;
     margin: 0px;
-   
-    
-       
-         
+  }
+  img {
+    width: 60px;
+    object-fit: contain;
+  }
+  .chart-asset-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  .chart-symbol {
+    background: white;
+    padding: 5px;
+    border-radius: 3px;
+    color: grey;
+  }
+
+  .chart {
+    margin-top: 200px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hint {
+    background: $secondary;
+    opacity: 0.8;
+    color: black;
+    padding: 5px;
+    border-radius: 1rem;
+    box-shadow: $shadow;
+  }
+  .table {
+    width: 100%;
+    .key {
+      text-align: left;
+    }
+    .value {
+      text-align: right;
+    }
+  }
+  #title {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    #symbol {
+      font-weight: bold;
+      font-size: 1.5rem;
     }
     img {
-        width: 60px;
-        object-fit: contain;
+      margin-right: 5px;
     }
-        .chart-asset-header {
-            display: flex; 
-            flex-direction: row;
-            justify-content: space-around;
-            margin-top: 10px;
-        }
-        .chart-symbol {
-            background: white;
-            padding:5px;
-            border-radius: 3px;
-            color:grey
-        }
-    
-        
-    
-    
-  
-    
-    
-    .chart {
-        margin-top: 200px;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
- 
+  }
+
+  .current-price {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    color: black;
+
+    align-items: center;
+    width: 100%;
+    .data-point {
+      margin: 2px;
     }
-    
-    .hint {
-      background:$secondary;
-      opacity: 0.8;
-      color: black;
-      padding: 5px;
-      border-radius: 1rem;
-      box-shadow: $shadow;
-    }
-    .table {
-        width: 100%;
-      .key {
-          text-align: left;
+
+    h1 {
+      font-size: 1.2rem;
+      color: rgb(63, 49, 49);
+      data {
+        color: black;
+        font-weight: bold;
       }
-        .value {
-            text-align: right;
-        }
     }
-    #title {
-        
-        display: flex;
-        flex-direction: row;
-        margin: 5px;
-        #symbol {
-          
-            font-weight: bold;
-            font-size: 1.5rem;
-         }
-         img {
-           
-            margin-right: 5px;
-        }
-    }
-   
-    .current-price {
-        margin-top: 20px;
-        background: white;
-        display: flex; 
-        flex-direction: column;
-       color: black;
-     
-       align-items: center;
-       width: 100%;
-       .data-point {
-        margin:2px;
-    }
-       
-      
-        h1 {
-            font-size: 1.2rem;
-            color: rgb(63, 49, 49);
-            data {
-                color: black;
-                font-weight: bold;
-            }
-            }
-            .p-change-pos {
-                background: $green;
-                color: white;
-                border-radius: 1rem;
-                font-weight: bold;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                padding: 5px;
-                height: 40px;
-                width: 200px;
-          
-            }
-            .p-change-neg {
-                background: $red;
-                color: white;
-                border-radius: 1rem;
-                font-weight: bold;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                padding: 5px;
-                height: 40px;
-                width: 200px;
-            }
-          
-}
-.chart-buttons {
+  }
+  .chart-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: "space-around";
     margin-bottom: 10%;
     .button {
-        margin: 10px;
-        border-radius: 1rem;
-        border: none;
-        padding: 10px;
+      margin: 10px;
+      border-radius: 1rem;
+      border: none;
+      padding: 10px;
     }
-}
+  }
 
-
-// assets 
-.name {
+  // assets
+  .name {
     padding-left: 10px;
     font-weight: bold;
     width: 75%;
     img {
-        width: 30px;
-        margin-bottom: -10px;
-        margin-right: 5px;
-    
-    h3 {
+      width: 30px;
+      margin-bottom: -10px;
+      margin-right: 5px;
+
+      h3 {
         color: grey;
+      }
     }
-}
-}
-
-//search 
-form {
-
-    margin-bottom: 0.5vw;
-      width: 100vw;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
   }
-  
-.search-bar {
+
+  //search
+  form {
+    margin-bottom: 0.5vw;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-bar {
     outline: none;
     border: none;
-      width: 75%;
-      height: 35px;
-      border-bottom: 2px solid rgb(15, 192, 29);
-   
-    font-size: 1rem;
-  padding-left: 10px;
-    &:focus {
-        width: 75%;
-        border-bottom: 4px solid rgb(15, 192, 29);
-        outline: none;
-        height: 35px;
-    }
-}
+    width: 75%;
+    height: 35px;
+    border-bottom: 2px solid rgb(15, 192, 29);
 
-.logo {
+    font-size: 1rem;
+    padding-left: 10px;
+    &:focus {
+      width: 75%;
+      border-bottom: 4px solid rgb(15, 192, 29);
+      outline: none;
+      height: 35px;
+    }
+  }
+
+  .logo {
     margin-top: 5vw;
     width: 50vw;
-   margin-bottom: 5vw;
-}
-.link {
+    margin-bottom: 5vw;
+  }
+  .link {
     text-decoration: none;
     color: black;
     &:visited {
-        color: black;
+      color: black;
     }
-   
-}
-.mobile-asset {
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100%;
-color: black;
-background: $secondary;
-p {
-    font-weight: bold;
-  
-}
-}
-.circle-graph {
-
+  }
+  .mobile-asset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: black;
+    background: $secondary;
+    p {
+      font-weight: bold;
+    }
+  }
+  .circle-graph {
     width: 25%;
     height: 25%;
     margin-top: 5%;
- 
-    margin-left: -1%;
-}
 
+    margin-left: -1%;
+  }
+
+  .p-change-pos {
+    background: $green;
+    color: white;
+
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    height: 40px;
+    width: 100%;
+  }
+  .p-change-neg {
+    background: $red;
+    color: white;
+
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    height: 40px;
+    width: 100%;
+  }
 }
