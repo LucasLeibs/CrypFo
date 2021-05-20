@@ -81,6 +81,7 @@ section {
         }
     }
     #title {
+        margin-top: 10px;
         display: flex;
         flex-direction: row;
       
@@ -91,12 +92,12 @@ section {
          }
          img {
             margin-bottom: 10px;
-            // margin-right: 5px;
+            margin-right: 5px;
         }
     }
    
     .current-price {
-        margin-top: 10%;
+   
         background: white;
         display: flex; 
         flex-direction: column;

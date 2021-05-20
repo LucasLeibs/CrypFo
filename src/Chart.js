@@ -248,7 +248,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
        <div className="current-price">
          <div id="title">
        <img src={state.asset.image}></img>
-       {/* <p id="symbol">{state.asset.symbol.toUpperCase()}</p> */}
+       <p id="symbol">{state.asset.symbol.toUpperCase()}</p>
        </div>
        {percentChange(state.asset.price_change_percentage_24h)}
    
