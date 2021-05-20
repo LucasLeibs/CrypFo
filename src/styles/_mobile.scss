@@ -81,23 +81,23 @@ section {
         }
     }
     #title {
-        margin-top: 10px;
+        
         display: flex;
         flex-direction: row;
-      
+        margin: 5px;
         #symbol {
-           
+          
             font-weight: bold;
             font-size: 1.5rem;
          }
          img {
-            margin-bottom: 10px;
+           
             margin-right: 5px;
         }
     }
    
     .current-price {
-   
+        margin-top: 20px;
         background: white;
         display: flex; 
         flex-direction: column;

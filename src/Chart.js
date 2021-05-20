@@ -246,11 +246,12 @@ const [hoveredNode, setHoveredNode] = useState(null)
        
        <MediaQuery maxDeviceWidth={1339}>
        <div className="current-price">
-         <div id="title">
+         
+       {percentChange(state.asset.price_change_percentage_24h)}
+       <div id="title">
        <img src={state.asset.image}></img>
        <p id="symbol">{state.asset.symbol.toUpperCase()}</p>
        </div>
-       {percentChange(state.asset.price_change_percentage_24h)}
    
        <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())} price:<data>$ {state.asset.current_price.toLocaleString()}</data></h1>
      <data>{hintValue ? moment(hintValue.x).calendar() : ''}</data>

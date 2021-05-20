@@ -453,7 +453,6 @@ body {
     text-align: right;
   }
   #title {
-    margin-top: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -461,16 +460,17 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    margin: 5px;
   }
   #title #symbol {
     font-weight: bold;
     font-size: 1.5rem;
   }
   #title img {
-    margin-bottom: 10px;
     margin-right: 5px;
   }
   .current-price {
+    margin-top: 20px;
     background: white;
     display: -webkit-box;
     display: -ms-flexbox;
