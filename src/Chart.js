@@ -4,7 +4,8 @@ import { XYPlot, LineSeries, Hint, XAxis, YAxis, MarkSeries } from "react-vis";
 import "../node_modules/react-vis/dist/style.css";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
-import { Media } from "react-bootstrap";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 const percentChangeIcons = [
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -240,6 +241,15 @@ const [hoveredNode, setHoveredNode] = useState(null)
      <p>{hintValue ?  '$' + hintValue.y.toLocaleString(): ''}</p>
      <data>{hintValue ? graphDataPercentChange(): ''}</data>
           </div>
+          { dailyPrices.length === 0 ? 
+              <Loader
+              type="Ball-Triangle"
+              color="#00BFFF"
+              height={100}
+              width={100}
+              timeout={3000} //3 secs
+            />
+            :
         <XYPlot
           xType="time"
           onMouseLeave={_onMouseLeave}
@@ -260,6 +270,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
           />
         
         </XYPlot>
+}
         <div className="chart-buttons">
               <button value="daily" className={highlighted == 'daily' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e,dailyPrices)}>1D</button>
               <button value="week" className={highlighted == 'week' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, days7)}>7D</button>

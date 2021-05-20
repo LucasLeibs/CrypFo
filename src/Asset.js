@@ -55,7 +55,7 @@ export default function Asset(props) {
             <MediaQuery minDeviceWidth={1340}>
             <tr className="header">
                 <th className="name-label">Name</th>
-              
+       
                 <th>Price </th>
                 <th>24hr % <OverlayTrigger trigger="hover" placement="bottom" overlay={popover2}><span>{info}</span></OverlayTrigger></th>
                 <th>Market Cap<OverlayTrigger trigger="hover" placement="bottom" overlay={popover1}><span>{info}</span></OverlayTrigger></th>
@@ -75,24 +75,17 @@ export default function Asset(props) {
                 <th>Price </th>
             
             </tr>
-            {props.filterAssets ? 
-            (props.filterAssets.map(asset => (
+  
+            {props.filterAssets.map(asset => (
             
                     <IndividualAsset key={asset.id} asset={asset}/>
                  
               
             
                
-            )))
-        : 
-        <Loader
-        type="Puff"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-      />
-}
+            ))}
+  
+
              </MediaQuery>
         </table>
        

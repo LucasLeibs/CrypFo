@@ -5,6 +5,8 @@ import Search from './Search'
 import Asset from './Asset'
 import moment from 'moment';
 import logo from './block.png'
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import {
   BrowserRouter as Router,
@@ -68,7 +70,16 @@ const [time, setTime] = useState(moment().format('LTS'))
      <p>{clock}</p> */}
       <img className="logo"src={logo}></img>
           <Search search={search} assets={assets}></Search>
-          <Asset filterAssets={filteredCoins} assets={assets}/>
+         {assets.length !== 0 ?  <Asset filterAssets={filteredCoins} assets={assets}/>
+         : 
+         <Loader
+         type="Ball-Triangle"
+         color="#00BFFF"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+       />
+}
           </Route>
           <Route exact path="/charts/:asset">
            <Chart/>
