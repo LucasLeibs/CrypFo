@@ -126,13 +126,16 @@ form {
   border: none;
   width: 50%;
   height: 50px;
-  border-radius: 3rem;
+  border-bottom: 2px solid #0fc01d;
   font-size: 1.5rem;
   padding-left: 10px;
 }
 
 .search-bar:focus {
   outline: none;
+  border-bottom: 4px solid #0fc01d;
+  width: 53%;
+  height: 50px;
 }
 
 .chart-page-container {
@@ -328,7 +331,7 @@ form {
 }
 
 body {
-  background-color: #292e36;
+  background-color: white;
 }
 
 .page-container {
@@ -347,7 +350,7 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  background-color: #292e36;
+  background-color: white;
   color: white;
 }
 
@@ -582,14 +585,17 @@ body {
   .search-bar {
     outline: none;
     border: none;
-    width: 100%;
+    width: 75%;
     height: 35px;
-    border-radius: 0.5rem;
+    border-bottom: 2px solid #0fc01d;
     font-size: 1rem;
     padding-left: 10px;
   }
   .search-bar:focus {
+    width: 75%;
+    border-bottom: 4px solid #0fc01d;
     outline: none;
+    height: 35px;
   }
   .logo {
     margin-top: 5vw;

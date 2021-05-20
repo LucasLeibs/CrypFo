@@ -27,7 +27,7 @@ const [input, setSearch] = useState('')
 const [time, setTime] = useState(moment().format('LTS'))
  useEffect(() => {
  const fetchData = () =>{ 
-   fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=true
+   fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=true
   `)
   .then(res => res.json())
   .then(data => {
@@ -73,7 +73,7 @@ const [time, setTime] = useState(moment().format('LTS'))
          {assets.length !== 0 ?  <Asset filterAssets={filteredCoins} assets={assets}/>
          : 
          <Loader
-         type="Ball-Triangle"
+         type="Audio"
          color="#00BFFF"
          height={100}
          width={100}

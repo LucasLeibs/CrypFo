@@ -243,7 +243,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
           </div>
           { dailyPrices.length === 0 ? 
               <Loader
-              type="Ball-Triangle"
+              type="Audio"
               color="#00BFFF"
               height={100}
               width={100}

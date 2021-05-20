@@ -13,11 +13,14 @@ form {
   border: none;
     width: 50%;
     height: 50px;
-  border-radius: 3rem;
+  border-bottom: 2px solid rgb(15, 192, 29);
   font-size: 1.5rem;
 padding-left: 10px;
   &:focus {
       outline: none;
+      border-bottom: 4px solid rgb(15, 192, 29);
+      width: 53%;
+      height: 50px;
   }
 }
 
