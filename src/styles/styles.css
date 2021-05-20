@@ -371,7 +371,6 @@ body {
 @media only screen and (max-width: 1339px) {
   .chart-page-container {
     width: 100vw;
-    height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -384,7 +383,6 @@ body {
             align-items: center;
     background-color: white;
     color: white;
-    overflow: scroll;
   }
   section {
     width: 100%;
