@@ -85,10 +85,14 @@ section {
         display: flex;
         flex-direction: row;
         #symbol {
-            margin-top: 15px;
+           
             font-weight: bold;
             font-size: 1.5rem;
          }
+         img {
+            margin-bottom: 10px;
+            margin-right: 5px;
+        }
     }
    
     .current-price {
@@ -97,16 +101,13 @@ section {
         display: flex; 
         flex-direction: column;
        color: black;
-       justify-content:center;
+     
        align-items: center;
        width: 100%;
        .data-point {
         margin:2px;
     }
-        img {
-            margin-bottom: 10px;
-            margin-right: 5px;
-        }
+       
       
         h1 {
             font-size: 1.2rem;

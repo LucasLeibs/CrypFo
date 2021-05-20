@@ -464,9 +464,12 @@ body {
             flex-direction: row;
   }
   #title #symbol {
-    margin-top: 15px;
     font-weight: bold;
     font-size: 1.5rem;
+  }
+  #title img {
+    margin-bottom: 10px;
+    margin-right: 5px;
   }
   .current-price {
     margin-top: 10%;
@@ -479,9 +482,6 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
     color: black;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -489,10 +489,6 @@ body {
   }
   .current-price .data-point {
     margin: 2px;
-  }
-  .current-price img {
-    margin-bottom: 10px;
-    margin-right: 5px;
   }
   .current-price h1 {
     font-size: 1.2rem;
