@@ -6,6 +6,10 @@ import { useLocation } from "react-router-dom";
 import moment from "moment";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import VisibilitySensor from "react-visibility-sensor";
+
+
 const percentChangeIcons = [
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +49,7 @@ const [month, setMonthData] = useState([])
 const [month3, set3MonthData] = useState([])
 const [year, setYearData] = useState([])
 const [hoveredNode, setHoveredNode] = useState(null)
+
   const _onMouseLeave = () => {
     setHint("");
   };
@@ -154,6 +159,12 @@ const [hoveredNode, setHoveredNode] = useState(null)
     }
     return dailyData;
   }
+
+  const percentSupply = (asset) => {
+    let percent = (asset.circulating_supply * 100) / asset.max_supply;
+
+    return `${percent.toString().slice(0, 4)} %`;
+  };
   return (
     <div className="chart-page-container">
       <MediaQuery minDeviceWidth={1340}>
@@ -235,10 +246,15 @@ const [hoveredNode, setHoveredNode] = useState(null)
        
        <MediaQuery maxDeviceWidth={1339}>
        <div className="current-price">
+         <span id="title">
+       <img src={state.asset.image}></img>
+       <p id="symbol">{state.asset.symbol.toUpperCase()}</p>
+       </span>
        {percentChange(state.asset.price_change_percentage_24h)}
-       <h1>{state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())} price:<data>$ {state.asset.current_price.toLocaleString()}</data></h1>
+   
+       <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())} price:<data>$ {state.asset.current_price.toLocaleString()}</data></h1>
      <data>{hintValue ? moment(hintValue.x).calendar() : ''}</data>
-     <p>{hintValue ?  '$' + hintValue.y.toLocaleString(): ''}</p>
+     <p className="data-point">{hintValue ?  '$' + hintValue.y.toLocaleString(): ''}</p>
      <data>{hintValue ? graphDataPercentChange(): ''}</data>
           </div>
           { dailyPrices.length === 0 ? 
@@ -278,6 +294,58 @@ const [hoveredNode, setHoveredNode] = useState(null)
               <button value="month3" className={highlighted == 'month3' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, month3)}>3M</button>
               <button value="year" className={highlighted == 'year' ? 'highlighted-button' : 'button'} onClick={(e) => toggleCharts(e, year)}>1Y</button>
               </div>
+            <div className="mobile-asset">
+              
+              <h1>Circulating Supply</h1>
+              {state.asset.max_supply == null ? '' :
+                <p>Max Supply: {state.asset.max_supply.toLocaleString()} {state.asset.symbol.toUpperCase()}<br></br>
+                {percentSupply(state.asset)} of supply is in circulation</p>
+              }
+            
+              
+            <section className="circle-graph">
+         
+          { state.asset.max_supply == null ? (
+             
+            <CircularProgressbar
+              value={state.asset.circulating_supply}
+              maxValue={state.asset.max_supply}
+              text={"No Max"}
+              styles={buildStyles({
+                pathColor: `#d4d9d5`,
+                textColor: "",
+                trailColor: "white",
+                backgroundColor: "#d4d9d5",
+              })}
+            />
+          ) : (
+            <VisibilitySensor offset={{bottom:-85}}>
+            {({ isVisible }) => {
+              const percentage = isVisible ? state.asset.circulating_supply : 0;
+              
+              return (
+                <CircularProgressbar
+                  value={percentage}
+                  maxValue={state.asset.max_supply}
+                  text={percentSupply(state.asset)}
+                  styles={buildStyles({
+                    pathColor: `#0aa5c4`,
+                    textColor: "",
+                    trailColor: "white",
+                    backgroundColor: "#3e98c7",
+                    pathTransitionDuration: 2,
+                    transition: "stroke-dashoffset 0.5s ease 0s",
+                  })}
+                />
+              )
+                }}
+                </VisibilitySensor>
+          )
+          }
+          
+          </section>
+          
+          </div>
         </MediaQuery>
       
     </div>
