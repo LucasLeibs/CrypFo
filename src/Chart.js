@@ -310,7 +310,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
 </svg>
 <h3>Market Cap</h3>
 </div>
-          <h3>{state.asset.market_cap.toLocaleString()}</h3>
+          <h3>${state.asset.market_cap.toLocaleString()}</h3>
           </div>
           <div className="stat">
             <div className="desc">
@@ -319,7 +319,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
 </svg>
 <h3>Market Rank</h3>
 </div>
-          <h3>{state.asset.market_cap_rank}</h3>
+          <h3> #{state.asset.market_cap_rank}</h3>
           </div>
           <div className="stat">
             <div className="desc">
@@ -328,7 +328,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
 </svg>
 <h3>Price Change(24hr)</h3>
 </div>
-          <h3>{state.asset.price_change_24h.toLocaleString()}</h3>
+          <h3>${state.asset.price_change_24h.toLocaleString()}</h3>
           </div>
           </div>
           <h2>Circulating Supply</h2>
