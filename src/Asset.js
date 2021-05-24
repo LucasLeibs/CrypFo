@@ -70,9 +70,9 @@ export default function Asset(props) {
              </MediaQuery>
              <MediaQuery maxDeviceWidth={1339}>
              <tr className="header">
-                <th className="name-label">Name</th>
+   
               
-                <th>Price </th>
+                
             
             </tr>
   
