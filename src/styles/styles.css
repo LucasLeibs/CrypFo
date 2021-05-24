@@ -593,8 +593,8 @@ body {
     font-weight: bold;
   }
   .circle-graph {
-    width: 25%;
-    height: 25%;
+    width: 75px;
+    height: 75px;
     margin-top: 5%;
     margin-left: -1%;
   }
@@ -677,9 +677,10 @@ body {
   .stat svg {
     width: 20px;
     margin-right: 10px;
+    margin-left: 10px;
   }
-  .stat data {
-    float: right;
+  .stat h3 {
+    margin-right: 10px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

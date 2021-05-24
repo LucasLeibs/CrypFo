@@ -182,8 +182,8 @@ $secondary: rgb(247, 243, 243);
     }
   }
   .circle-graph {
-    width: 25%;
-    height: 25%;
+    width: 75px;
+    height: 75px;
     margin-top: 5%;
 
     margin-left: -1%;
@@ -237,11 +237,12 @@ $secondary: rgb(247, 243, 243);
      svg {
         width: 20px;
         margin-right: 10px;
+        margin-left: 10px;
     }
     
-      
-      data {
-          float: right;
+      h3 {
+          margin-right: 10px;
       }
+     
   }
 }
