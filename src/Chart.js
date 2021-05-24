@@ -299,7 +299,9 @@ const [hoveredNode, setHoveredNode] = useState(null)
               
               
           <div className="coin-stats">
+          <h2>Market Stats</h2>
           <div className="stat">
+           
             <div className="desc">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
   <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
@@ -329,7 +331,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
           <h3>{state.asset.price_change_24h.toLocaleString()}</h3>
           </div>
           </div>
-          <h1>Circulating Supply</h1>
+          <h2>Circulating Supply</h2>
               {state.asset.max_supply == null ? '' :
                 <p>Max Supply: {state.asset.max_supply.toLocaleString()} {state.asset.symbol.toUpperCase()}<br></br>
                 {percentSupply(state.asset)} of supply is in circulation</p>
