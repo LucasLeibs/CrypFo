@@ -253,7 +253,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
        <p id="symbol">{state.asset.symbol.toUpperCase()}</p>
        </div> */}
    
-       <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())} price:<data>$ {state.asset.current_price.toLocaleString()}</data></h1>
+       <h1> {state.asset.id.replace(state.asset.id.charAt(0), state.asset.id.charAt(0).toUpperCase())} price: <data>${state.asset.current_price.toLocaleString()}</data></h1>
      <data>{hintValue ? moment(hintValue.x).calendar() : ''}</data>
      <p className="data-point">{hintValue ?  '$' + hintValue.y.toLocaleString(): ''}</p>
      <data>{hintValue ? graphDataPercentChange(): ''}</data>
@@ -329,6 +329,15 @@ const [hoveredNode, setHoveredNode] = useState(null)
 <h3>Price Change(24hr)</h3>
 </div>
           <h3>${state.asset.price_change_24h.toLocaleString()}</h3>
+          </div>
+          <div className="stat">
+            <div className="desc">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+</svg>
+<h3>All Time High</h3>
+</div>
+          <h3>${state.asset.ath.toLocaleString()}</h3>
           </div>
           </div>
           <h2>Circulating Supply</h2>

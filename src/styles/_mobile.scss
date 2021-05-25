@@ -152,7 +152,7 @@ $secondary: rgb(247, 243, 243);
     padding-left: 10px;
     &:focus {
       width: 90%;
-      border: 4px solid #338ee4;
+      border: 3px solid #338ee4;
       outline: none;
       height: 35px;
       border-radius: 3px;
@@ -222,6 +222,7 @@ $secondary: rgb(247, 243, 243);
       display: flex;
       flex-direction: column;
     width: 100%;
+    text-align: center;;
     h2 {
         margin-left: 10px;
     }
@@ -240,7 +241,7 @@ $secondary: rgb(247, 243, 243);
         width: 20px;
         margin-right: 10px;
         margin-left: 10px;
-        margin-top: -40px;
+        margin-top: -37px;
         color: rgb(51, 142, 228);
     }
     
