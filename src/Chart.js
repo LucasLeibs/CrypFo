@@ -347,10 +347,10 @@ const [hoveredNode, setHoveredNode] = useState(null)
               maxValue={state.asset.max_supply}
               text={"No Max"}
               styles={buildStyles({
-                pathColor: `#d4d9d5`,
+                pathColor: `#338ee4`,
                 textColor: "",
                 trailColor: "white",
-                backgroundColor: "#d4d9d5",
+                backgroundColor: '#338ee4',
               })}
             />
           ) : (
@@ -364,7 +364,7 @@ const [hoveredNode, setHoveredNode] = useState(null)
                   maxValue={state.asset.max_supply}
                   text={percentSupply(state.asset)}
                   styles={buildStyles({
-                    pathColor: `#0aa5c4`,
+                    pathColor: `#338ee4`,
                     textColor: "",
                     trailColor: "white",
                     backgroundColor: "#3e98c7",

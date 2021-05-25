@@ -69,12 +69,7 @@ export default function Asset(props) {
             ))}
              </MediaQuery>
              <MediaQuery maxDeviceWidth={1339}>
-             <tr className="header">
-   
-              
-                
-            
-            </tr>
+          
   
             {props.filterAssets.map(asset => (
             

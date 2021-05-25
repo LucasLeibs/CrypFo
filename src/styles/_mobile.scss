@@ -118,7 +118,7 @@ $secondary: rgb(247, 243, 243);
   // assets
   .name {
     padding-left: 10px;
-    font-weight: bold;
+    font-weight: normal;
     width: 75%;
     img {
       width: 30px;
@@ -144,17 +144,18 @@ $secondary: rgb(247, 243, 243);
   .search-bar {
     outline: none;
     border: none;
-    width: 100%;
+    width: 90%;
     height: 35px;
-    border-bottom: 2px solid rgb(142, 143, 148);
-
+    border: 2px solid rgb(142, 143, 148);
+    
     font-size: 1rem;
     padding-left: 10px;
     &:focus {
-      width: 100%;
-      border-bottom: 4px solid rgb(51, 142, 228);
+      width: 90%;
+      border: 4px solid #338ee4;
       outline: none;
       height: 35px;
+      border-radius: 3px;
     }
   }
 
@@ -176,10 +177,8 @@ $secondary: rgb(247, 243, 243);
     align-items: center;
     width: 100%;
     color: black;
-    background: $secondary;
-    p {
-      font-weight: bold;
-    }
+ 
+ 
   }
   .circle-graph {
     width: 75px;
@@ -242,10 +241,12 @@ $secondary: rgb(247, 243, 243);
         margin-right: 10px;
         margin-left: 10px;
         margin-top: -40px;
+        color: rgb(51, 142, 228);
     }
     
       h3 {
           margin-right: 10px;
+          font-weight: normal;
       }
      
   }
