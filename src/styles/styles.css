@@ -548,10 +548,10 @@ body {
   }
   .search-bar {
     outline: none;
-    border: none;
+    border-radius: 3px;
     width: 90%;
     height: 35px;
-    border: 2px solid #8e8f94;
+    border: 2px solid #dddee2;
     font-size: 1rem;
     padding-left: 10px;
   }
@@ -638,6 +638,9 @@ body {
     height: 40px;
     width: 100%;
   }
+  h2 {
+    font-size: 1.3rem;
+  }
   .coin-stats {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -648,9 +651,6 @@ body {
             flex-direction: column;
     width: 90%;
     text-align: center;
-  }
-  .coin-stats h2 {
-    margin-left: 10px;
   }
   .stat {
     width: 100%;
@@ -664,6 +664,7 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    margin: -5px;
   }
   .stat .desc {
     display: -webkit-box;
@@ -684,6 +685,7 @@ body {
   .stat h3 {
     margin-right: 10px;
     font-weight: normal;
+    font-size: 1rem;
   }
 }
 /*# sourceMappingURL=styles.css.map */
